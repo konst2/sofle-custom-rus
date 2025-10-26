@@ -42,8 +42,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|   z  |   x  |   c  |   v  |   b  |-------|    |-------|   n  |   m  |   ,  |   .  |   /  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LGUI | LAlt | LCTR |LOWER | /Enter  /       \Space \  |RAISE | RCTR | RAlt | RGUI |
- *            |      |      |      |      |/       /         \      \ |      |      |      |      |
+ *            | LCTR | LAlt | LGUI |LOWER | /Space  /       \Enter \  | RU/EN| RGUI | RAlt | RCTR |
+ *            |      |      |      |      |/       /         \      \ | RAISE|      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 
@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LA_CHNG,  EN_A,   EN_S,    EN_D,    EN_F,    EN_G,                     EN_H,    EN_J,    EN_K,    EN_L, EN_SCLN,  EN_QUOT,
   SFT_N,    EN_Z,   EN_X,    EN_C,    EN_V,    EN_B, KC_MUTE,    XXXXXXX,EN_N,    EN_M, EN_COMM,  EN_DOT, AG_SLSH,  SFT_N,
 
-                    KC_LGUI,KC_LALT,KC_LCTL, TL_LOWR, KC_ENT,    KC_SPC,  TL_UPPR, KC_RCTL, KC_RALT, KC_RGUI
+                  KC_LCTL, KC_LALT, KC_LGUI, TL_LOWR, KC_SPC,    KC_ENT, LT(TL_UPPR, LA_CHNG), KC_RGUI, KC_RALT, KC_RCTL
 ),
 /*
  * EN_SHIFT
@@ -66,8 +66,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   <  |   >  |   ?  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LGUI | LAlt | LCTR |LOWER | /Enter  /       \Space \  |RAISE | RCTR | RAlt | RGUI |
- *            |      |      |      |      |/       /         \      \ |      |      |      |      |
+ *            | LCTR | LAlt | LGUI |LOWER | /Space  /       \Enter \  | RU/EN| RGUI | RAlt | RCTR |
+ *            |      |      |      |      |/       /         \      \ | RAISE|      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 
@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LA_CHNG,EN_S_A, EN_S_S,  EN_S_D,  EN_S_F,  EN_S_G,                   EN_S_H,  EN_S_J,  EN_S_K,  EN_S_L, EN_COLN,  EN_DQUO,
   SFT_N,  EN_S_Z, EN_S_X,  EN_S_C,  EN_S_V,  EN_S_B, KC_MUTE,  XXXXXXX,EN_S_N,  EN_S_M,   EN_LT,   EN_GT, AG_QUES,  SFT_N,
 
-                    KC_LGUI,KC_LALT,KC_LCTL, TL_LOWR, KC_ENT,  KC_SPC,  TL_UPPR, KC_RCTL, KC_RALT, KC_RGUI
+                  KC_LCTL, KC_LALT, KC_LGUI, TL_LOWR, KC_SPC,    KC_ENT, LT(TL_UPPR, LA_CHNG), KC_RGUI, KC_RALT, KC_RCTL
 ),
 /*
  * RU
@@ -90,8 +90,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|   я  |   ч  |   с  |   м  |   и  |-------|    |-------|   т  |   ь  |   б  |   ю  |   /  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LGUI | LAlt | LCTR |LOWER | /Enter  /       \Space \  |RAISE | RCTR | RAlt | RGUI |
- *            |      |      |      |      |/       /         \      \ |      |      |      |      |
+ *            | LCTR | LAlt | LGUI |LOWER | /Space  /       \Enter \  | RU/EN| RGUI | RAlt | RCTR |
+ *            |      |      |      |      |/       /         \      \ | RAISE|      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 
@@ -101,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LA_CHNG,  RU_F,   RU_Y,    RU_V,    RU_A,    RU_P,                     RU_R,    RU_O,    RU_L,    RU_D,   RU_ZH,  RU_E,
   SFT_N,   RU_JA,  RU_CH,    RU_S,    RU_M,    RU_I, KC_MUTE,    XXXXXXX,RU_T,   RU_SF,    RU_B,   RU_JU, AG_SLSH,  SFT_N,
 
-                    KC_LGUI,KC_LALT,KC_LCTL, TL_LOWR, KC_ENT,    KC_SPC,  TL_UPPR, KC_RCTL, KC_RALT, KC_RGUI
+                  KC_LCTL, KC_LALT, KC_LGUI, TL_LOWR, KC_SPC,    KC_ENT, LT(TL_UPPR, LA_CHNG), KC_RGUI, KC_RALT, KC_RCTL
 ),
 /*
  * RU_SHIFT
@@ -114,8 +114,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|   Я  |   Ч  |   С  |   М  |   И  |-------|    |-------|   Т  |   Ь  |   Б  |   Ю  |   ?  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LGUI | LAlt | LCTR |LOWER | /Enter  /       \Space \  |RAISE | RCTR | RAlt | RGUI |
- *            |      |      |      |      |/       /         \      \ |      |      |      |      |
+ *            | LCTR | LAlt | LGUI |LOWER | /Space  /       \Enter \  | RU/EN| RGUI | RAlt | RCTR |
+ *            |      |      |      |      |/       /         \      \ | RAISE|      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 
@@ -125,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LA_CHNG, RU_S_F,  RU_S_Y,  RU_S_V,  RU_S_A,  RU_S_P,                   RU_S_R,  RU_S_O,  RU_S_L,  RU_S_D, RU_S_ZH,  RU_S_E,
   SFT_N,  RU_S_JA, RU_S_CH,  RU_S_S,  RU_S_M,  RU_S_I, KC_MUTE,  XXXXXXX,RU_S_T, RU_S_SF,  RU_S_B, RU_S_JU, AG_QUES,  SFT_N,
 
-                     KC_LGUI,KC_LALT,KC_LCTL, TL_LOWR, KC_ENT,      KC_SPC,  TL_UPPR, KC_RCTL, KC_RALT, KC_RGUI
+                  KC_LCTL, KC_LALT, KC_LGUI, TL_LOWR, KC_SPC,    KC_ENT, LT(TL_UPPR, LA_CHNG), KC_RGUI, KC_RALT, KC_RCTL
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
