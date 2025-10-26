@@ -430,6 +430,10 @@ void lang_activate_from_user_without_sync(Lang lang) {
 }
 
 Key lang_process(Key key, bool down) {
+    // --- KB - добавлен сброс таймера на любое нажатие/отпускание клавиши
+    lang_timer = timer_read();
+    // ./--- KB
+
   Key after_agnostic = lang_calc_agnostic(key);
   if (after_agnostic != NONE_KEY) {
     key = after_agnostic;
@@ -457,7 +461,8 @@ Key lang_process(Key key, bool down) {
 
 void lang_user_timer(void) {
 	// Нужно выключать язык после прохождения определённого времени, потому что пользователь ожидает как будто шифт на самом деле включён
-	if (lang_pressed_count == 0 && lang_current != lang_should_be && timer_read() - lang_timer >= 100) {
+    // --- KB - увеличил таймер с 100 до 400
+	if (lang_pressed_count == 0 && lang_current != lang_should_be && timer_read() - lang_timer >= 400) {
 		lang_activate(lang_should_be);
 	}
 }
