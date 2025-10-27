@@ -78,5 +78,8 @@
     #define ENABLE_RGB_MATRIX_MULTISPLASH
     #define ENABLE_RGB_MATRIX_SOLID_SPLASH
     #define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
+
+    #define RGB_MATRIX_TIMEOUT 120000   // отключение подсветки через 2 минуты бездействия
+    #define RGB_TRIGGER_ON_KEYDOWN      // Triggers RGB keypress events on key down. This makes RGB control feel more responsive. This may cause RGB to not function properly on some boards
 #endif
 
