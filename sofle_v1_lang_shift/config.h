@@ -13,6 +13,11 @@
 // langshift. способ смены языка
 #define LANG_CHANGE_DEFAULT LANG_CHANGE_CAPS
 
+// определяем стороны для split клавиатуры автоматически - у нас припаян резистор
+//#define MASTER_LEFT
+//#define SPLIT_HAND_PIN GP4
+//#define	SPLIT_HAND_PIN_LOW_IS_LEFT
+
 // RGB Matrix settings
 #ifdef RGB_MATRIX_ENABLE
     #define RGB_MATRIX_LED_COUNT       72 // Number of LEDs
