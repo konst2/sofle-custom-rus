@@ -129,23 +129,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | F11  |
+ * | ESC  |   !  |   @  |   #  |   $  |   %  |                    |   ˆ  |   &  |   *  |   (  |   )  | Bspc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |  `   |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  | F12  |
+ * | Tab  |   ?  |      |   №  |      |   (  |                    |   )  |      |   +  |   -  |   |  |   "  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  |   !  |   @  |   #  |   $  |   %  |-------.    ,-------|   ^  |   &  |   *  |   (  |   )  |   ,  |
+ * |   `  |   ~  |      |      |   '  |   {  |-------.    ,-------|   }  |   "  |   =  |   _  |   \  |   '  |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * | Shift|  =   |  -   |  +   |   {  |   }  |-------|    |-------|   [  |   ]  |   ;  |   :  |   \  | Shift|
+ * | Shift|      |      |      |   <  |   [  |-------|    |-------|   ]  |   >  |   ,  |   .  |   /  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LCTR | LAlt | LGUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 [_LOWER] = LAYOUT(
-  _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
-  _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       KC_6,    KC_7,    KC_8,    KC_9,    KC_0,  KC_F12,
-  _______, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
-  _______,  KC_EQL, KC_MINS, KC_PLUS, KC_LCBR, KC_RCBR, _______,       _______, KC_LBRC, KC_RBRC, KC_SCLN, KC_COLN, KC_BSLS, _______,
+  _______, AG_EXCL,   EN_AT, EN_HASH,  EN_DLR, AG_PERC,                    EN_CIRC, EN_AMPR, AG_ASTR, AG_LPRN, AG_RPRN, KC_BSPC,
+  _______, AG_QUES, XXXXXXX, RU_NUME, XXXXXXX, AG_LPRN,                    AG_RPRN, XXXXXXX, AG_PLUS, AG_MINS, EN_PIPE, AG_DQUO,
+   EN_GRV, EN_TILD, XXXXXXX, XXXXXXX, EN_QUOT, EN_LCBR,                    EN_RCBR, AG_DQUO,  AG_EQL, AG_UNDS, AG_BSLS, EN_QUOT,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX,   EN_LT, EN_LBRC, _______,           EN_RBRC,   EN_GT, AG_COMM,  AG_DOT, AG_SLSH, XXXXXXX, _______,
 
                        _______, _______, _______, _______, KC_BSPC,       _______, _______, _______, _______, _______
 ),
@@ -155,21 +155,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Tab  | Home |  Up  | End  | PgUp |  (   |                    |  )   |      |      |      |      |  F12 |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Ru/En| Right| Down | Left | PgDn |  {   |-------.    ,-------|  }   |      |      |      |      |   .  |
+ * | Ru/En| Right| Down | Left | PgDn |  {   |-------.    ,-------|  }   |      |      |      |      |   '  |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * | Shift|      |      |      |  <   |  [   |-------|    |-------|  ]   |  >   |      |      |      |   ,  |
+ * | Shift|      |      |      |  <   |  [   |-------|    |-------|  ]   |  >   |      |      |      | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LCTR | LAlt | LGUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
  *            |      |      |      |      |/       /         \ SYNC \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 [_RAISE] = LAYOUT(
-  _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                         KC_F6,    KC_F7,   KC_F8,   KC_F9,    KC_F10,   KC_F11,
+  _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                         KC_F6,    KC_F7,   KC_F8,    KC_F9,   KC_F10,   KC_F11,
   _______, KC_HOME,   KC_UP,  KC_END, KC_PGUP, AG_LPRN,                       AG_RPRN,  XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,   KC_F12,
-  _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, EN_LCBR,                       EN_RCBR,  XXXXXXX,  XXXXXXX, XXXXXXX,   XXXXXXX,  AG_DOT,
-  _______, XXXXXXX, XXXXXXX, XXXXXXX,   EN_LT, EN_LBRC,  _______,    _______, EN_RBRC,    EN_GT,  XXXXXXX, KC_LEND,   XXXXXXX, AG_COMM,
+  _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, EN_LCBR,                       EN_RCBR,  XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  EN_QUOT,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX,   EN_LT, EN_LBRC,  _______,    _______, EN_RBRC,    EN_GT,  XXXXXXX, KC_LEND,  XXXXXXX,  _______,
 
-                         _______, _______, _______, _______, KC_BSPC,       LA_SYNC, _______, _______, _______, _______
+                     _______, _______, _______, _______, KC_BSPC,       LA_SYNC, _______, _______, _______, _______
 ),
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -182,7 +182,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |      |-------|    |-------|      | PREV | PLAY | NEXT |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LCTR | LAlt | LGUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
- *            |      |      |      |      |/       /         \      \ |      |      |      |      |
+ *            |      |      |      |      |/       /         \ SYNC \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 [_ADJUST] = LAYOUT(
@@ -191,7 +191,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX , XXXXXXX,  CG_TOGG ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX,
   XXXXXXX , XXXXXXX,  XXXXXXX ,  XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
 
-                    _______, _______, _______, _______, KC_BSPC,     _______, _______, _______, _______, _______
+                    _______, _______, _______, _______, KC_BSPC,     LA_SYNC, _______, _______, _______, _______
    )
 };
 
@@ -376,4 +376,89 @@ led_config_t g_led_config = {
         LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT
     }
 };
+#endif
+
+
+// OLED display
+#ifdef OLED_ENABLE
+
+// https://joric.github.io/qle/
+// Logo rendered in 128x32px
+static void render_logo(void) {
+    static const char PROGMEM raw_logo[] = {
+        0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,128,128,128,  0,  0,  0,192,224,240,240,240,240,240,240,240,224,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,112,112,112,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+        0,  0,  0,  0,  0,  0,  0,  0,  0,128,192,224,240,  0,  0,240,252,254,255,255,255,  1,240,252,255,255,255,255,255,255,255,255,127, 31,  7,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,254,254,254,  0,  0,240,248,252, 30, 14, 14, 14, 14, 14, 14, 30,252,248,240,  0,  0,254,254,252, 28, 14, 14, 14, 14,  0,  0,254,254,252, 28, 14, 14, 14, 14, 30,252,248,240,  0,  0,240,248,252,222,206,206,206,206,206,206,222,252,248,240,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
+        0,  0,  0,  0,  0,  0,  0,  0,  0, 63,255,255,255,254,240,255,255,255,255,255,255,248,255,255,255,255,255,255,255,255,255,193,128,128,128,192,240,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,128,255,255,255,  0,  0, 15, 31, 63,120,112,112,112,112,112,112,120, 63, 31, 15,  0,  0,127,127,127,  0,  0,  0,  0,  0,  0,  0,127,127,127,  0,  0,  0,  0,  0,  0,127,127,127,  0,  0, 15, 31, 63,121,113,113,113,113,113,113,121, 61, 29, 13,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
+        0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  3,  3,  3,  3,  1,  1,  3,  3,  7,  7,  7,  3,  3,  1,  3,  7,  7,  7,  7,  7,  7,  7,  3,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  7,  7,  7,  7,  7,  7,  7,  7,  3,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+    };
+    oled_write_raw_P(raw_logo, sizeof(raw_logo));
+}
+
+static void print_status_narrow(void) {
+    switch (get_highest_layer(layer_state)) {
+        case _LAYER_EN:
+        case _LAYER_EN_SHIFT:
+            oled_write_ln_P(PSTR("  e"), false);
+            break;
+        case _LAYER_RU:
+        case _LAYER_RU_SHIFT:
+            oled_write_ln_P(PSTR("RURU"), false);
+            break;
+        case _RAISE:
+        case _LOWER:
+        case _ADJUST:
+            oled_write_ln_P(PSTR("...."), false);
+            break;
+        default:
+            oled_write_ln_P(PSTR("Undef"), false);
+    }
+    oled_write_P(PSTR("\n\n"), false);
+
+
+    // Print current mode
+    oled_write_P(PSTR("\n\n"), false);
+    oled_write_ln_P(PSTR(" @dr\nKard"), false);
+
+    oled_write_ln_P(PSTR(""), false);
+
+	//snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Undef-%ld", layer_state)
+
+    // Print current layer
+    oled_write_P(PSTR("\n\n\n"), false);
+    switch (get_highest_layer(layer_state)) {
+        case _LAYER_EN:
+        case _LAYER_EN_SHIFT:
+        case _LAYER_RU:
+        case _LAYER_RU_SHIFT:
+            oled_write_P(PSTR("Base\n"), false);
+            break;
+        case _RAISE:
+            oled_write_P(PSTR("Raise"), false);
+            break;
+        case _LOWER:
+            oled_write_P(PSTR("Lower"), false);
+            break;
+        case _ADJUST:
+            oled_write_P(PSTR("Adjst"), false);
+            break;
+        default:
+            oled_write_ln_P(PSTR("Undef"), false);
+    }
+}
+
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    if (is_keyboard_master()) {
+        return OLED_ROTATION_270;
+    }
+    return rotation;
+}
+
+bool oled_task_user(void) {
+    if (is_keyboard_master()) {
+        print_status_narrow();
+    } else {
+        render_logo();
+    }
+    return false;
+}
 #endif
