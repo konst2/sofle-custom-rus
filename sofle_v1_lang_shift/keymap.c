@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, AG_EXCL,   EN_AT, EN_HASH,  EN_DLR, AG_PERC,                    EN_CIRC, EN_AMPR, AG_ASTR, AG_LPRN, AG_RPRN, KC_BSPC,
   _______, AG_QUES, XXXXXXX, RU_NUME, XXXXXXX, AG_LPRN,                    AG_RPRN, XXXXXXX, AG_PLUS, AG_MINS, EN_PIPE, AG_DQUO,
    EN_GRV, EN_TILD, XXXXXXX, XXXXXXX, EN_QUOT, EN_LCBR,                    EN_RCBR, AG_DQUO,  AG_EQL, AG_UNDS, AG_BSLS, EN_QUOT,
-  _______, XXXXXXX, XXXXXXX, XXXXXXX,   EN_LT, EN_LBRC, _______,           EN_RBRC,   EN_GT, AG_COMM,  AG_DOT, AG_SLSH, XXXXXXX, _______,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX,   EN_LT, EN_LBRC, _______,   XXXXXXX,EN_RBRC,   EN_GT, AG_COMM,  AG_DOT, AG_SLSH, _______,
 
                        _______, _______, _______, _______, KC_BSPC,       _______, _______, _______, _______, _______
 ),
@@ -155,7 +155,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Tab  | Home |  Up  | End  | PgUp |  (   |                    |  )   |      |      |      |      |  F12 |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Ru/En| Right| Down | Left | PgDn |  {   |-------.    ,-------|  }   |      |      |      |      |   '  |
+ * |   `  | Right| Down | Left | PgDn |  {   |-------.    ,-------|  }   |      |      |      |      |   '  |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|      |      |      |  <   |  [   |-------|    |-------|  ]   |  >   |      |      |      | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -166,7 +166,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT(
   _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                         KC_F6,    KC_F7,   KC_F8,    KC_F9,   KC_F10,   KC_F11,
   _______, KC_HOME,   KC_UP,  KC_END, KC_PGUP, AG_LPRN,                       AG_RPRN,  XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,   KC_F12,
-  _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, EN_LCBR,                       EN_RCBR,  XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  EN_QUOT,
+   EN_GRV, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, EN_LCBR,                       EN_RCBR,  XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  EN_QUOT,
   _______, XXXXXXX, XXXXXXX, XXXXXXX,   EN_LT, EN_LBRC,  _______,    _______, EN_RBRC,    EN_GT,  XXXXXXX, KC_LEND,  XXXXXXX,  _______,
 
                      _______, _______, _______, _______, KC_BSPC,       LA_SYNC, _______, _______, _______, _______
