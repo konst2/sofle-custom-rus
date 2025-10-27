@@ -195,6 +195,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    )
 };
 
+
+// RGB эффекты
+#ifdef RGB_MATRIX_ENABLE
+// Сокращённые названия эффектов для OLED (макс. 8 символов!)
+static const char *const rgb_effect_names[] = {
+    [RGB_MATRIX_NONE] = "None",
+    [RGB_MATRIX_GRADIENT_LEFT_RIGHT] = "GrdLR",
+    [RGB_MATRIX_BREATHING] = "Breathe",
+    [RGB_MATRIX_CYCLE_LEFT_RIGHT] = "Cycle",
+    [RGB_MATRIX_CYCLE_UP_DOWN] = "CycUD",
+    [RGB_MATRIX_HUE_BREATHING] = "HueBr",
+    [RGB_MATRIX_STARLIGHT] = "Star",
+    [RGB_MATRIX_TYPING_HEATMAP] = "TypHt",
+    [RGB_MATRIX_SOLID_REACTIVE] = "SReact",
+    [RGB_MATRIX_SOLID_REACTIVE_WIDE] = "SReWd",
+    [RGB_MATRIX_SOLID_REACTIVE_NEXUS] = "SReNx",
+};
+#endif
+
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!lang_shift_process_record(keycode, record))
         return false;
@@ -419,6 +439,20 @@ static void print_status_narrow(void) {
     oled_write_P(PSTR("\n\n"), false);
     oled_write_ln_P(PSTR(" @dr\nKard"), false);
 
+    // === RGB состояние ===
+#ifdef RGB_MATRIX_ENABLE
+    if (rgb_matrix_is_enabled()) {
+        uint8_t mode = rgb_matrix_get_mode();
+        if (mode < sizeof(rgb_effect_names) / sizeof(rgb_effect_names[0]) && rgb_effect_names[mode]) {
+            oled_write_P(PSTR("RGB:\n"), false);
+            oled_write(rgb_effect_names[mode], false);
+        } else {
+            oled_write_P(PSTR("Unk"), false);
+        }
+    } 
+    oled_write_P(PSTR("\n"), false);
+#endif
+
     oled_write_ln_P(PSTR(""), false);
 
 	//snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Undef-%ld", layer_state)
@@ -444,6 +478,7 @@ static void print_status_narrow(void) {
         default:
             oled_write_ln_P(PSTR("Undef"), false);
     }
+    oled_write_P(PSTR("\n"), false);
 }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
