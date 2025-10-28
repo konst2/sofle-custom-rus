@@ -11,7 +11,7 @@
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
 
 // langshift. способ смены языка
-#define LANG_CHANGE_DEFAULT LANG_CHANGE_CAPS
+#define LANG_CHANGE_DEFAULT LANG_CHANGE_CARABINER
 
 // определяем стороны для split клавиатуры автоматически - у нас припаян резистор
 // почему-то не определено GP4, используем числовое значение

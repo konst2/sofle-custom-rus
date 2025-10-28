@@ -408,6 +408,18 @@ void lang_synchronize(void) {
       unregister_code(KC_SPACE);
       unregister_code(KC_LEFT_GUI);
     } break;
+    case LANG_CHANGE_CARABINER: {
+      if (lang_current == 0) {
+        register_code(KC_RIGHT_GUI);
+        unregister_code(KC_RIGHT_GUI);
+      } else {
+        register_code(KC_RIGHT_ALT);
+        unregister_code(KC_RIGHT_ALT);
+      }
+      // кривовато но приходится после переключения добавлять задержку
+      // потому что karabiner не всегда срабатывает моментально 
+      wait_ms(80);
+    } break;
   }
 }
 
@@ -560,6 +572,11 @@ bool lang_shift_process_custom_keycodes(Key key, keyrecord_t* record) {
     case LA_WISP:
       if (down) {
         lang_current_change = LANG_CHANGE_WIN_SPACE;
+      }
+      return false;
+    case LA_CRBN:
+      if (down) {
+        lang_current_change = LANG_CHANGE_CARABINER;
       }
       return false;
     case AG_3DOT:
