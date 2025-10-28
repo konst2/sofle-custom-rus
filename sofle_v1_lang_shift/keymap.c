@@ -155,9 +155,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Tab  | Home |  Up  | End  | PgUp |  (   |                    |  )   |      |      |      |      |  F12 |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  | Right| Down | Left | PgDn |  {   |-------.    ,-------|  }   |      |      |      |      |   '  |
+ * |   `  | Right| Down | Left | PgDn |  {   |-------.    ,-------|  }   |      |   Ъ  |      |      |   '  |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * | Shift|  Ins |      |  Del |  <   |  [   |-------|    |-------|  ]   |  >   |      |      |      | Shift|
+ * | Shift|  Ins |      |  Del |  <   |  [   |-------|    |-------|  ]   |  >   |   ъ  |      |      | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LCTR | LAlt | LGUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
@@ -166,30 +166,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT(
   _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                         KC_F6,    KC_F7,   KC_F8,    KC_F9,   KC_F10,   KC_F11,
   _______, KC_HOME,   KC_UP,  KC_END, KC_PGUP, AG_LPRN,                       AG_RPRN,  XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,   KC_F12,
-   EN_GRV, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, EN_LCBR,                       EN_RCBR,  XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  EN_QUOT,
-  _______,  KC_INS, XXXXXXX,  KC_DEL,   EN_LT, EN_LBRC,  _______,    _______, EN_RBRC,    EN_GT,  XXXXXXX, KC_LEND,  XXXXXXX,  _______,
+   EN_GRV, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, EN_LCBR,                       EN_RCBR,  XXXXXXX,  RU_S_HD, XXXXXXX,  XXXXXXX,  EN_QUOT,
+  _______,  KC_INS, XXXXXXX,  KC_DEL,   EN_LT, EN_LBRC,  _______,    _______, EN_RBRC,    EN_GT,    RU_HD, KC_LEND,  XXXXXXX,  _______,
 
                      _______, _______, _______, _______, KC_BSPC,       _______, _______, _______, _______, _______
 ),
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
+ * | Esc  |On/Off| Next | Prew | Hue+ | Hue- |                    |  Sat+| Sat- | Val+ | Val- |Speed+|Speed-| RGB row
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | QK_BOOT|      |QWERTY|COLEMAK|      |      |                    |      |      |      |      |      |      |
+ * | Tab  |      |      |.     |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |MACWIN|      |      |      |-------.    ,-------|      | VOLDO| MUTE | VOLUP|      |      |
+ * |   `  |      |MACWIN|      |      |      |-------.    ,-------|      |      |      |      |      |      |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|      | PREV | PLAY | NEXT |      |      |
+ * | Shift|      |      |      |      |      |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LCTR | LAlt | LGUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 [_ADJUST] = LAYOUT(
-  AG_8,     RM_TOGG,  RM_NEXT ,  RM_PREV , RM_HUEU, RM_HUED,                     RM_SATU, RM_SATD, RM_VALU, RM_VALD, RM_SPDU, RM_SPDD,
-  QK_BOOT , XXXXXXX,  XXXXXXX ,  XXXXXXX , CG_TOGG, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX , XXXXXXX,  CG_TOGG ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX,
-  XXXXXXX , XXXXXXX,  XXXXXXX ,  XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
+  _______,  RM_TOGG,  RM_NEXT ,  RM_PREV , RM_HUEU, RM_HUED,                     RM_SATU, RM_SATD, RM_VALU, RM_VALD, RM_SPDU, RM_SPDD,
+  _______,  XXXXXXX,  XXXXXXX ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______,  XXXXXXX,  CG_TOGG ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______,  XXXXXXX,  XXXXXXX ,  XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 
                     _______, _______, _______, _______, KC_BSPC,     _______, _______, _______, _______, _______
    )
