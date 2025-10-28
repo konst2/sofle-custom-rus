@@ -8,6 +8,8 @@ enum custom_keycodes {
     KC_NXTWD,              // Next Word
     KC_LSTRT,              // Line Start
     KC_LEND,               // Line End
+    KC_DWDL,               // Delete Word Left (backward)
+    KC_DWDR,               // Delete Word Right (forward)
     NEW_SAFE_RANGE,
 };
 
@@ -153,7 +155,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * | Esc  |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | F11  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  | Home |  Up  | End  | PgUp |      |                    |      | Home |  Up  | End  | PgUp |  F12 |
+ * | Tab  | Home |  Up  | End  | PgUp |<-Del |                    | Del->| Home |  Up  | End  | PgUp |  F12 |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |   `  | Right| Down | Left | PgDn |<-Line|-------.    ,-------|Line->| Right| Down | Left | PgDn |   '  |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
@@ -165,9 +167,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT(
   _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                         KC_F6,    KC_F7,   KC_F8,    KC_F9,   KC_F10,   KC_F11,
-  _______, KC_HOME,   KC_UP,  KC_END, KC_PGUP, XXXXXXX,                       XXXXXXX,  KC_HOME,   KC_UP,   KC_END,  KC_PGUP,   KC_F12,
+  _______, KC_HOME,   KC_UP,  KC_END, KC_PGUP, KC_DWDL,                       KC_DWDR,  KC_HOME,   KC_UP,   KC_END,  KC_PGUP,   KC_F12,
    EN_GRV, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN,KC_LSTRT,                       KC_LEND,  KC_LEFT, KC_DOWN,  KC_RGHT,  KC_PGDN,  EN_QUOT,
-  _______,  KC_INS, XXXXXXX,  KC_DEL,KC_PRVWD,KC_PRVWD,  _______,    _______,KC_NXTWD,   KC_INS, XXXXXXX,   KC_DEL,  XXXXXXX,  _______,
+  _______,  KC_INS, XXXXXXX,  KC_DEL, XXXXXXX,KC_PRVWD,  _______,    _______,KC_NXTWD,   KC_INS, XXXXXXX,   KC_DEL,  XXXXXXX,  _______,
 
                      _______, _______, _______, _______, KC_BSPC,       _______, _______, _______, _______, _______
 ),
@@ -333,6 +335,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 } else {
                     unregister_code(KC_END);
                 }
+            }
+            break;
+        case KC_DWDL:
+            if (record->event.pressed) {
+                // Delete word backward = Alt + Backspace on Mac
+                register_mods(mod_config(MOD_LALT));
+                register_code(KC_BSPC);
+            } else {
+                unregister_code(KC_BSPC);
+                unregister_mods(mod_config(MOD_LALT));
+            }
+            break;
+        case KC_DWDR:
+            if (record->event.pressed) {
+                // Delete word forward = Ctrl + Delete on Mac
+                register_mods(mod_config(MOD_LALT));
+                register_code(KC_DEL);
+            } else {
+                unregister_code(KC_DEL);
+                unregister_mods(mod_config(MOD_LALT));
             }
             break;
     }
