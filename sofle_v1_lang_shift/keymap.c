@@ -153,11 +153,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * | Esc  |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | F11  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  | Home |  Up  | End  | PgUp |  (   |                    |  )   |      |      |      |      |  F12 |
+ * | Tab  | Home |  Up  | End  | PgUp |      |                    |      | Home |  Up  | End  | PgUp |  F12 |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  | Right| Down | Left | PgDn |  {   |-------.    ,-------|  }   |      |   Ъ  |      |      |   '  |
+ * |   `  | Right| Down | Left | PgDn |<-Line|-------.    ,-------|Line->| Right| Down | Left | PgDn |   '  |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * | Shift|  Ins |      |  Del |  <   |  [   |-------|    |-------|  ]   |  >   |   ъ  |      |      | Shift|
+ * | Shift|  Ins |      |  Del |      | <-Wrd|-------|    |-------| Wrd->|  Ins |      |  Del |      | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LCTR | LAlt | LGUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
@@ -165,9 +165,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT(
   _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                         KC_F6,    KC_F7,   KC_F8,    KC_F9,   KC_F10,   KC_F11,
-  _______, KC_HOME,   KC_UP,  KC_END, KC_PGUP, AG_LPRN,                       AG_RPRN,  XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,   KC_F12,
-   EN_GRV, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, EN_LCBR,                       EN_RCBR,  XXXXXXX,  RU_S_HD, XXXXXXX,  XXXXXXX,  EN_QUOT,
-  _______,  KC_INS, XXXXXXX,  KC_DEL,   EN_LT, EN_LBRC,  _______,    _______, EN_RBRC,    EN_GT,    RU_HD, KC_LEND,  XXXXXXX,  _______,
+  _______, KC_HOME,   KC_UP,  KC_END, KC_PGUP, XXXXXXX,                       XXXXXXX,  KC_HOME,   KC_UP,   KC_END,  KC_PGUP,   KC_F12,
+   EN_GRV, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN,KC_LSTRT,                       KC_LEND,  KC_LEFT, KC_DOWN,  KC_RGHT,  KC_PGDN,  EN_QUOT,
+  _______,  KC_INS, XXXXXXX,  KC_DEL,KC_PRVWD,KC_PRVWD,  _______,    _______,KC_NXTWD,   KC_INS, XXXXXXX,   KC_DEL,  XXXXXXX,  _______,
 
                      _______, _______, _______, _______, KC_BSPC,       _______, _______, _______, _______, _______
 ),
@@ -177,9 +177,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Tab  |      |      |.     |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |      |MACWIN|      |      |      |-------.    ,-------|      |      |      |      |      |      |
+ * |   `  |      |MACWIN|      |      |      |-------.    ,-------|      |  Ъ   |      |      |      |      |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * | Shift|      |      |      |      |      |-------|    |-------|      |      |      |      |      |      |
+ * | Shift|      |      |      |      |      |-------|    |-------|      |  ъ   |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LCTR | LAlt | LGUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
@@ -188,8 +188,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] = LAYOUT(
   _______,  RM_TOGG,  RM_NEXT ,  RM_PREV , RM_HUEU, RM_HUED,                     RM_SATU, RM_SATD, RM_VALU, RM_VALD, RM_SPDU, RM_SPDD,
   _______,  XXXXXXX,  XXXXXXX ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  _______,  XXXXXXX,  CG_TOGG ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  _______,  XXXXXXX,  XXXXXXX ,  XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+   EN_GRV,  XXXXXXX,  CG_TOGG ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, RU_S_HD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______,  XXXXXXX,  XXXXXXX ,  XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,   RU_HD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 
                     _______, _______, _______, _______, KC_BSPC,     _______, _______, _______, _______, _______
    )
