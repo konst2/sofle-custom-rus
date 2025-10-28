@@ -410,11 +410,11 @@ void lang_synchronize(void) {
     } break;
     case LANG_CHANGE_CARABINER: {
       if (lang_current == 0) {
-        register_code(KC_RIGHT_GUI);
-        unregister_code(KC_RIGHT_GUI);
+        register_code(KC_F18);
+        unregister_code(KC_F18);
       } else {
-        register_code(KC_RIGHT_ALT);
-        unregister_code(KC_RIGHT_ALT);
+        register_code(KC_F19);
+        unregister_code(KC_F19);
       }
       // кривовато но приходится после переключения добавлять задержку
       // потому что karabiner не всегда срабатывает моментально 
