@@ -160,7 +160,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Shift|  Ins |      |  Del |  <   |  [   |-------|    |-------|  ]   |  >   |      |      |      | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LCTR | LAlt | LGUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
- *            |      |      |      |      |/       /         \ SYNC \ |      |      |      |      |
+ *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 [_RAISE] = LAYOUT(
@@ -169,7 +169,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    EN_GRV, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, EN_LCBR,                       EN_RCBR,  XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  EN_QUOT,
   _______,  KC_INS, XXXXXXX,  KC_DEL,   EN_LT, EN_LBRC,  _______,    _______, EN_RBRC,    EN_GT,  XXXXXXX, KC_LEND,  XXXXXXX,  _______,
 
-                     _______, _______, _______, _______, KC_BSPC,       LA_SYNC, _______, _______, _______, _______
+                     _______, _______, _______, _______, KC_BSPC,       _______, _______, _______, _______, _______
 ),
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -182,7 +182,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |      |-------|    |-------|      | PREV | PLAY | NEXT |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LCTR | LAlt | LGUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
- *            |      |      |      |      |/       /         \ SYNC \ |      |      |      |      |
+ *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 [_ADJUST] = LAYOUT(
@@ -191,7 +191,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXXXX , XXXXXXX,  CG_TOGG ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, KC_VOLD, KC_MUTE, KC_VOLU, XXXXXXX, XXXXXXX,
   XXXXXXX , XXXXXXX,  XXXXXXX ,  XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
 
-                    _______, _______, _______, _______, KC_BSPC,     LA_SYNC, _______, _______, _______, _______
+                    _______, _______, _______, _______, KC_BSPC,     _______, _______, _______, _______, _______
    )
 };
 
