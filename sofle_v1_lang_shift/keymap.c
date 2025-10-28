@@ -200,15 +200,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #ifdef RGB_MATRIX_ENABLE
 // Сокращённые названия эффектов для OLED (макс. 8 символов!)
 static const char *const rgb_effect_names[] = {
-    [RGB_MATRIX_NONE] = "None",
+    [RGB_MATRIX_NONE] = "None ",
     [RGB_MATRIX_GRADIENT_LEFT_RIGHT] = "GrdLR",
-    [RGB_MATRIX_BREATHING] = "Breathe",
+    [RGB_MATRIX_BREATHING] = "Breat",
     [RGB_MATRIX_CYCLE_LEFT_RIGHT] = "Cycle",
     [RGB_MATRIX_CYCLE_UP_DOWN] = "CycUD",
     [RGB_MATRIX_HUE_BREATHING] = "HueBr",
-    [RGB_MATRIX_STARLIGHT] = "Star",
+    [RGB_MATRIX_STARLIGHT] = "Star ",
     [RGB_MATRIX_TYPING_HEATMAP] = "TypHt",
-    [RGB_MATRIX_SOLID_REACTIVE] = "SReact",
+    [RGB_MATRIX_SOLID_REACTIVE] = "SReac",
     [RGB_MATRIX_SOLID_REACTIVE_WIDE] = "SReWd",
     [RGB_MATRIX_SOLID_REACTIVE_NEXUS] = "SReNx",
 };
@@ -414,71 +414,69 @@ static void render_logo(void) {
     oled_write_raw_P(raw_logo, sizeof(raw_logo));
 }
 
-static void print_status_narrow(void) {
+static void print_status_narrow(void) { 
+    // раскладка
     switch (get_highest_layer(layer_state)) {
         case _LAYER_EN:
         case _LAYER_EN_SHIFT:
-            oled_write_ln_P(PSTR("  e"), false);
+            oled_write_ln_P(PSTR("  e  "), false);
             break;
         case _LAYER_RU:
         case _LAYER_RU_SHIFT:
-            oled_write_ln_P(PSTR("RURU"), false);
+            oled_write_ln_P(PSTR("RU-RU"), false);
             break;
         case _RAISE:
         case _LOWER:
         case _ADJUST:
-            oled_write_ln_P(PSTR("...."), false);
+            oled_write_ln_P(PSTR("....."), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
     }
-    oled_write_P(PSTR("\n\n"), false);
 
+    oled_write_P(PSTR("\n\n\n"), false);
+    oled_write_ln_P(PSTR("  @dr Kard"), false);
 
-    // Print current mode
-    oled_write_P(PSTR("\n\n"), false);
-    oled_write_ln_P(PSTR(" @dr\nKard"), false);
 
     // === RGB состояние ===
 #ifdef RGB_MATRIX_ENABLE
     if (rgb_matrix_is_enabled()) {
+        oled_write_P(PSTR(" RGB\n"), false);
         uint8_t mode = rgb_matrix_get_mode();
         if (mode < sizeof(rgb_effect_names) / sizeof(rgb_effect_names[0]) && rgb_effect_names[mode]) {
-            oled_write_P(PSTR("RGB:\n"), false);
             oled_write(rgb_effect_names[mode], false);
         } else {
-            oled_write_P(PSTR("Unk"), false);
+            oled_write_P(PSTR("?????"), false);
         }
-    } 
-    oled_write_P(PSTR("\n"), false);
+    } else {
+        oled_write_P(PSTR("\n"), false);
+        oled_write_P(PSTR("_   _"), false);
+    }
 #endif
-
-    oled_write_ln_P(PSTR(""), false);
 
 	//snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Undef-%ld", layer_state)
 
     // Print current layer
-    oled_write_P(PSTR("\n\n\n"), false);
+    oled_write_P(PSTR("\n\n\n\n"), false);
     switch (get_highest_layer(layer_state)) {
         case _LAYER_EN:
         case _LAYER_EN_SHIFT:
         case _LAYER_RU:
         case _LAYER_RU_SHIFT:
-            oled_write_P(PSTR("Base\n"), false);
+            oled_write_P(PSTR("  .  "), false);
             break;
         case _RAISE:
-            oled_write_P(PSTR("Raise"), false);
+            oled_write_P(PSTR("   <R"), false);
             break;
         case _LOWER:
-            oled_write_P(PSTR("Lower"), false);
+            oled_write_P(PSTR("l>   "), false);
             break;
         case _ADJUST:
-            oled_write_P(PSTR("Adjst"), false);
+            oled_write_P(PSTR(" <#> "), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
     }
-    oled_write_P(PSTR("\n"), false);
 }
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
@@ -489,7 +487,9 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
 }
 
 bool oled_task_user(void) {
-    if (is_keyboard_master()) {
+    // где показывается раскладка и подсветка - на части с проводом или всегда на левой
+    if (is_keyboard_left()) {
+    //if (is_keyboard_master()) {
         print_status_narrow();
     } else {
         render_logo();
