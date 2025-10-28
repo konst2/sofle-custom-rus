@@ -408,6 +408,7 @@ void lang_synchronize(void) {
       unregister_code(KC_SPACE);
       unregister_code(KC_LEFT_GUI);
     } break;
+    // --- KB - Добавлен способ смены языка через Karabiner по F18 и F19
     case LANG_CHANGE_CARABINER: {
       if (lang_current == 0) {
         register_code(KC_F18);
@@ -419,10 +420,11 @@ void lang_synchronize(void) {
       // кривовато но приходится после переключения добавлять задержку
       // потому что karabiner не всегда срабатывает моментально 
       wait_ms(80);
+      // --- KB - После синхронизации устанавливаем текущий язык равным тому, который должен быть
+      // поскольку karabiner надёжно переключает язык в системе
+      lang_current = lang_should_be;
     } break;
   }
-  // --- KB - После синхронизации устанавливаем текущий язык равным тому, который должен быть
-  lang_current = lang_should_be;
 }
 
 void lang_activate(Lang lang) {
