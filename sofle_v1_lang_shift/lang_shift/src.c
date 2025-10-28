@@ -421,6 +421,8 @@ void lang_synchronize(void) {
       wait_ms(80);
     } break;
   }
+  // --- KB - После синхронизации устанавливаем текущий язык равным тому, который должен быть
+  lang_current = lang_should_be;
 }
 
 void lang_activate(Lang lang) {
