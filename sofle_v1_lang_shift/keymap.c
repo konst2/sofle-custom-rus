@@ -10,6 +10,7 @@ enum custom_keycodes {
     KC_LEND,               // Line End
     KC_DWDL,               // Delete Word Left (backward)
     KC_DWDR,               // Delete Word Right (forward)
+    KC_CH_OS,              // Change OS
     NEW_SAFE_RANGE,
 };
 
@@ -28,9 +29,27 @@ enum sofle_layers {
     _ADJUST,
 };
 
+// параметр в eeprom для операционной системы
+#define OS_MACOS 0
+#define OS_WINDOWS 1
+#define OS_LINUX 2
 
-//#define KC_QWERTY PDF(_QWERTY)
-//#define KC_COLEMAK PDF(_COLEMAK)
+typedef union {
+    uint32_t raw;
+    struct {
+        uint8_t os_type : 2;
+    };
+} user_config_t;
+user_config_t user_config;
+__attribute__((weak)) void keyboard_post_init_user(void) {
+    user_config.raw = eeconfig_read_user();
+}
+void switch_to_next_os(void) {
+    user_config.os_type = (user_config.os_type + 1) % 3;
+    eeconfig_update_user(user_config.raw);
+}
+
+
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
@@ -177,7 +196,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * | Esc  |On/Off| Next | Prew | Hue+ | Hue- |                    |  Sat+| Sat- | Val+ | Val- |Speed+|Speed-| RGB row
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  |      |      |.     |      |      |                    |      |      |      |      |      |      |
+ * | Tab  |      |  OS  |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |   `  |      |MACWIN|      |      |      |-------.    ,-------|      |  Ъ   |      |      |      |      |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
@@ -189,7 +208,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT(
   _______,  RM_TOGG,  RM_NEXT ,  RM_PREV , RM_HUEU, RM_HUED,                     RM_SATU, RM_SATD, RM_VALU, RM_VALD, RM_SPDU, RM_SPDD,
-  _______,  XXXXXXX,  XXXXXXX ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______,  XXXXXXX, KC_CH_OS ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
    EN_GRV,  XXXXXXX,  CG_TOGG ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, RU_S_HD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   _______,  XXXXXXX,  XXXXXXX ,  XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,   RU_HD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 
@@ -357,6 +376,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_mods(mod_config(MOD_LALT));
             }
             break;
+        // переключение операционной системы
+        case KC_CH_OS:
+            if (record->event.pressed) {
+                switch_to_next_os();
+            }
+            break;
     }
     return true;
 }
@@ -464,7 +489,6 @@ led_config_t g_led_config = {
 
 // OLED display
 #ifdef OLED_ENABLE
-
 // https://joric.github.io/qle/
 // Logo rendered in 128x32px
 static void render_logo(void) {
@@ -498,7 +522,35 @@ static void print_status_narrow(void) {
     }
 
     oled_write_P(PSTR("\n\n\n"), false);
-    oled_write_ln_P(PSTR("  @dr Kard"), false);
+
+    // OS логотип из стандартного знакогенератора QMK
+    // https://joric.github.io/qle/
+    switch (user_config.os_type) {
+        case OS_MACOS:
+            oled_write_P(PSTR("  "), false);
+            oled_write_char((char)0x95, false);
+            oled_write_char((char)0x96, false);
+            oled_write_P(PSTR("\n  "), false);
+            oled_write_char((char)0xB5, false);
+            oled_write_char((char)0xB6, false);
+            break;
+        case OS_WINDOWS:
+            oled_write_P(PSTR("  "), false);
+            oled_write_char((char)0x97, false);
+            oled_write_char((char)0x98, false);
+            oled_write_P(PSTR("\n  "), false);
+            oled_write_char((char)0xB7, false);
+            oled_write_char((char)0xB8, false);
+            break;
+        default:
+            oled_write_P(PSTR("  "), false);
+            oled_write_char((char)0x99, false);
+            oled_write_char((char)0x9A, false);
+            oled_write_P(PSTR("\n  "), false);
+            oled_write_char((char)0xB9, false);
+            oled_write_char((char)0xBA, false);
+    }
+    oled_write_ln_P(PSTR("\n"), false);
 
 
     // === RGB состояние ===
