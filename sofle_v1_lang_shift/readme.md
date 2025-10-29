@@ -3,7 +3,7 @@
 
 # Default keymap for Sofle Keyboard
 
-Layout in [Keyboard Layout Editor](http://www.keyboard-layout-editor.com/#/gists/76efb423a46cbbea75465cb468eef7ff) and [adjust layer](http://www.keyboard-layout-editor.com/#/gists/4bcf66f922cfd54da20ba04905d56bd4)
+Layout in [Keyboard Layout Editor](https://www.keyboard-layout-editor.com/#/gists/26ca3f92825312924ce738406f96e0a4) and [adjust layer](http://www.keyboard-layout-editor.com/#/gists/4bcf66f922cfd54da20ba04905d56bd4)
 
 Features:
 
