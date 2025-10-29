@@ -41,7 +41,9 @@
 
 Всё остальное модифицируется согласно описанию плагина lang_shift.  
 
-Раскладка прошивки: [Keyboard Layout Editor](hhttps://www.keyboard-layout-editor.com/#/gists/26ca3f92825312924ce738406f96e0a4)
+Раскладка прошивки:  
+[Keyboard Layout Editor](https://www.keyboard-layout-editor.com/#/gists/26ca3f92825312924ce738406f96e0a4)
+
 ![Раскладка](soflekeyboard.png)
 
 
