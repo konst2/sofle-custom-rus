@@ -48,6 +48,10 @@ void switch_to_next_os(void) {
     user_config.os_type = (user_config.os_type + 1) % 3;
     eeconfig_update_user(user_config.raw);
 }
+#define OS_TYPE user_config.os_type
+#define IS_MACOS (OS_TYPE == OS_MACOS)
+#define IS_WINDOWS (OS_TYPE == OS_WINDOWS)
+#define IS_LINUX (OS_TYPE == OS_LINUX)
 
 
 
@@ -196,7 +200,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * | Esc  |On/Off| Next | Prew | Hue+ | Hue- |                    |  Sat+| Sat- | Val+ | Val- |Speed+|Speed-| RGB row
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  |      |  OS  |      |      |      |                    |      |      |      |      |      |      |
+ * | Tab  |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |   `  |      |MACWIN|      |      |      |-------.    ,-------|      |  Ъ   |      |      |      |      |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
@@ -207,10 +211,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *            `----------------------------------'           '------''---------------------------'
  */
 [_ADJUST] = LAYOUT(
-  _______,  RM_TOGG,  RM_NEXT ,  RM_PREV , RM_HUEU, RM_HUED,                     RM_SATU, RM_SATD, RM_VALU, RM_VALD, RM_SPDU, RM_SPDD,
-  _______,  XXXXXXX, KC_CH_OS ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-   EN_GRV,  XXXXXXX,  CG_TOGG ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, RU_S_HD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  _______,  XXXXXXX,  XXXXXXX ,  XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,   RU_HD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______,  RM_TOGG,  RM_NEXT,  RM_PREV , RM_HUEU, RM_HUED,                     RM_SATU, RM_SATD, RM_VALU, RM_VALD, RM_SPDU, RM_SPDD,
+  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+   EN_GRV,  XXXXXXX, KC_CH_OS,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, RU_S_HD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,   RU_HD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 
                     _______, _______, _______, _______, KC_BSPC,     _______, _______, _______, _______, _______
    )
@@ -525,7 +529,7 @@ static void print_status_narrow(void) {
 
     // OS логотип из стандартного знакогенератора QMK
     // https://joric.github.io/qle/
-    switch (user_config.os_type) {
+    switch (OS_TYPE) {
         case OS_MACOS:
             oled_write_P(PSTR("  "), false);
             oled_write_char((char)0x95, false);
