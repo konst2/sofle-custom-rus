@@ -328,15 +328,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 if (IS_MACOS) {
                      //CMD-arrow on Mac, but we have CTL and GUI swapped
-                    register_mods(mod_config(MOD_LGUI));
+                    register_code(KC_RIGHT_GUI);
                     register_code(KC_LEFT);
                 } else {
                     register_code(KC_HOME);
                 }
             } else {
                 if (IS_MACOS) {
-                    unregister_mods(mod_config(MOD_LGUI));
                     unregister_code(KC_LEFT);
+                    unregister_code(KC_RIGHT_GUI);
                 } else {
                     unregister_code(KC_HOME);
                 }
@@ -346,15 +346,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 if (IS_MACOS) {
                     //CMD-arrow on Mac, but we have CTL and GUI swapped
-                    register_mods(mod_config(MOD_LGUI));
+                    register_code(KC_RIGHT_GUI);
                     register_code(KC_RIGHT);
                 } else {
                     register_code(KC_END);
                 }
             } else {
                 if (IS_MACOS) {
-                    unregister_mods(mod_config(MOD_LGUI));
                     unregister_code(KC_RIGHT);
+                    unregister_code(KC_RIGHT_GUI);
+                    
                 } else {
                     unregister_code(KC_END);
                 }
