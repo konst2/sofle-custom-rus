@@ -41,6 +41,9 @@
 
 Всё остальное модифицируется согласно описанию плагина lang_shift.  
 
+Раскладка прошивки: [Keyboard Layout Editor](hhttps://www.keyboard-layout-editor.com/#/gists/26ca3f92825312924ce738406f96e0a4)
+![Раскладка](soflekeyboard.png)
+
 
 sofle_v1_lang_shift - Sofle с вкомпилированным lang_shift
 https://github.com/ilabutin/lang_shift

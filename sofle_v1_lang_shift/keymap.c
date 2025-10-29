@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * | ESC  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  | Bspc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | TAB  |   q  |   w  |   e  |   r  |   t  |                    |   y  |   u  |   i  |   o  |   p  |   {  |
+ * | TAB  |   q  |   w  |   e  |   r  |   t  |                    |   y  |   u  |   i  |   o  |   p  |   [  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |   `  |   a  |   s  |   d  |   f  |   g  |-------.    ,-------|   h  |   j  |   k  |   l  |   ;  |   '  |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
@@ -85,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * | ESC  |   !  |   @  |   #  |   $  |   %  |                    |   ˆ  |   &  |   *  |   (  |   )  | Bspc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | TAB  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |   [  |
+ * | TAB  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |   {  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |   ~  |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   :  |   "  |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_LAYER_EN_SHIFT] = LAYOUT(
   KC_ESC,AG_EXCL,  EN_AT, EN_HASH,  EN_DLR, AG_PERC,                  EN_CIRC, EN_AMPR, AG_ASTR, AG_LPRN, AG_RPRN,  KC_BSPC,
-  KC_TAB, EN_S_Q, EN_S_W,  EN_S_E,  EN_S_R,  EN_S_T,                   EN_S_Y,  EN_S_U,  EN_S_I,  EN_S_O,  EN_S_P,  EN_LBRC,
+  KC_TAB, EN_S_Q, EN_S_W,  EN_S_E,  EN_S_R,  EN_S_T,                   EN_S_Y,  EN_S_U,  EN_S_I,  EN_S_O,  EN_S_P,  EN_LCBR,
   EN_TILD,EN_S_A, EN_S_S,  EN_S_D,  EN_S_F,  EN_S_G,                   EN_S_H,  EN_S_J,  EN_S_K,  EN_S_L, EN_COLN,  EN_DQUO,
   SFT_N,  EN_S_Z, EN_S_X,  EN_S_C,  EN_S_V,  EN_S_B, KC_MUTE,  XXXXXXX,EN_S_N,  EN_S_M,   EN_LT,   EN_GT, AG_QUES,  SFT_N,
 
@@ -288,7 +288,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case KC_PRVWD:
             if (record->event.pressed) {
-                if (keymap_config.swap_lctl_lgui) {
+                if (IS_MACOS) {
                     register_mods(mod_config(MOD_LALT));
                     register_code(KC_LEFT);
                 } else {
@@ -296,7 +296,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     register_code(KC_LEFT);
                 }
             } else {
-                if (keymap_config.swap_lctl_lgui) {
+                if (IS_MACOS) {
                     unregister_mods(mod_config(MOD_LALT));
                     unregister_code(KC_LEFT);
                 } else {
@@ -307,7 +307,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case KC_NXTWD:
              if (record->event.pressed) {
-                if (keymap_config.swap_lctl_lgui) {
+                if (IS_MACOS) {
                     register_mods(mod_config(MOD_LALT));
                     register_code(KC_RIGHT);
                 } else {
@@ -315,7 +315,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     register_code(KC_RIGHT);
                 }
             } else {
-                if (keymap_config.swap_lctl_lgui) {
+                if (IS_MACOS) {
                     unregister_mods(mod_config(MOD_LALT));
                     unregister_code(KC_RIGHT);
                 } else {
@@ -326,7 +326,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case KC_LSTRT:
             if (record->event.pressed) {
-                if (keymap_config.swap_lctl_lgui) {
+                if (IS_MACOS) {
                      //CMD-arrow on Mac, but we have CTL and GUI swapped
                     register_mods(mod_config(MOD_LCTL));
                     register_code(KC_LEFT);
@@ -334,7 +334,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     register_code(KC_HOME);
                 }
             } else {
-                if (keymap_config.swap_lctl_lgui) {
+                if (IS_MACOS) {
                     unregister_mods(mod_config(MOD_LCTL));
                     unregister_code(KC_LEFT);
                 } else {
@@ -344,7 +344,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case KC_LEND:
             if (record->event.pressed) {
-                if (keymap_config.swap_lctl_lgui) {
+                if (IS_MACOS) {
                     //CMD-arrow on Mac, but we have CTL and GUI swapped
                     register_mods(mod_config(MOD_LCTL));
                     register_code(KC_RIGHT);
@@ -352,7 +352,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     register_code(KC_END);
                 }
             } else {
-                if (keymap_config.swap_lctl_lgui) {
+                if (IS_MACOS) {
                     unregister_mods(mod_config(MOD_LCTL));
                     unregister_code(KC_RIGHT);
                 } else {
@@ -591,7 +591,7 @@ static void print_status_narrow(void) {
             oled_write_P(PSTR("l>   "), false);
             break;
         case _ADJUST:
-            oled_write_P(PSTR(" <#> "), false);
+            oled_write_P(PSTR("l> <R"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
