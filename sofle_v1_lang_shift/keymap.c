@@ -289,38 +289,38 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_PRVWD:
             if (record->event.pressed) {
                 if (IS_MACOS) {
-                    register_mods(mod_config(MOD_LALT));
+                    register_code(KC_RIGHT_ALT);
                     register_code(KC_LEFT);
                 } else {
-                    register_mods(mod_config(MOD_LCTL));
+                    register_code(KC_RIGHT_CTRL);
                     register_code(KC_LEFT);
                 }
             } else {
                 if (IS_MACOS) {
-                    unregister_mods(mod_config(MOD_LALT));
                     unregister_code(KC_LEFT);
+                    unregister_code(KC_RIGHT_ALT);
                 } else {
-                    unregister_mods(mod_config(MOD_LCTL));
                     unregister_code(KC_LEFT);
+                    unregister_code(KC_RIGHT_CTRL);
                 }
             }
             break;
         case KC_NXTWD:
              if (record->event.pressed) {
                 if (IS_MACOS) {
-                    register_mods(mod_config(MOD_LALT));
+                    register_code(KC_RIGHT_ALT);
                     register_code(KC_RIGHT);
                 } else {
-                    register_mods(mod_config(MOD_LCTL));
+                    register_code(KC_RIGHT_CTRL);
                     register_code(KC_RIGHT);
                 }
             } else {
                 if (IS_MACOS) {
-                    unregister_mods(mod_config(MOD_LALT));
                     unregister_code(KC_RIGHT);
+                    unregister_code(KC_RIGHT_ALT);
                 } else {
-                    unregister_mods(mod_config(MOD_LCTL));
                     unregister_code(KC_RIGHT);
+                    unregister_code(KC_RIGHT_CTRL);
                 }
             }
             break;
@@ -364,21 +364,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_DWDL:
             if (record->event.pressed) {
                 // Delete word backward = Alt + Backspace on Mac
-                register_mods(mod_config(MOD_LALT));
+                register_code(KC_RIGHT_ALT);
                 register_code(KC_BSPC);
             } else {
                 unregister_code(KC_BSPC);
-                unregister_mods(mod_config(MOD_LALT));
+                unregister_code(KC_RIGHT_ALT);
             }
             break;
         case KC_DWDR:
             if (record->event.pressed) {
                 // Delete word forward = Ctrl + Delete on Mac
-                register_mods(mod_config(MOD_LALT));
+                register_code(KC_RIGHT_ALT);
                 register_code(KC_DEL);
             } else {
                 unregister_code(KC_DEL);
-                unregister_mods(mod_config(MOD_LALT));
+                unregister_code(KC_RIGHT_ALT);
             }
             break;
         // переключение операционной системы
