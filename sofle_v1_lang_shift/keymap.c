@@ -15,7 +15,7 @@ enum custom_keycodes {
 };
 
 #define CUSTOM_SAFE_RANGE NEW_SAFE_RANGE
-#include "lang_shift/include.h"
+#include "lib/lang_shift/include.h"
 
 
 enum sofle_layers {
