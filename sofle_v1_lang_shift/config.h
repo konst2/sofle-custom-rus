@@ -18,6 +18,11 @@
 #define SPLIT_HAND_PIN 4U // GP
 #define	SPLIT_HAND_PIN_LOW_IS_LEFT
 
+// переопределяем шрифт
+#ifdef OLED_ENABLE
+    #define OLED_FONT_H "lib/glcdfont_custom.c"
+#endif
+
 // RGB Matrix settings
 #ifdef RGB_MATRIX_ENABLE
     #define RGB_MATRIX_LED_COUNT       72 // Number of LEDs
