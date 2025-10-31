@@ -7,6 +7,10 @@ Shift shift_current = 0;
 uint32_t shift_timer = 0;
 uint8_t shift_pressed_count = 0;
 
+// залипающий шифт
+static bool sticky_shift_is_held = false;
+static bool key_pressed_during_sticky_shift = false;
+
 Key shift_get_key(Key key) {
   switch (key) {
     case KS_GRV:  return KC_GRV;
@@ -218,7 +222,7 @@ void shift_once_process(Key key, keyrecord_t* record) {
     shift_once_disable_stage = 0;
     shift_activate_from_user(false);
   }
-  if (down && key != SFT_N_O && shift_once_disable_stage == 2) {
+if (down && key != SFT_N_O && key != SFT_STK && shift_once_disable_stage == 2) {
     shift_once_disable_stage = 1;
     layer_off(shift_once_layer_off);
   }
@@ -539,6 +543,26 @@ bool lang_shift_process_custom_keycodes(Key key, keyrecord_t* record) {
         layer_off(lang_shift_current_shift_layer);
       }
       return false;
+      //KB - добавлен залипающий шифт
+    case SFT_STK:
+        if (down) {
+            shift_activate_from_user(true);
+            lang_shift_current_shift_layer = lang_get_shift_layer_number();
+            layer_on(lang_shift_current_shift_layer);
+            sticky_shift_is_held = true;
+            key_pressed_during_sticky_shift = false;
+        } else {
+            shift_should_be = false;
+            if (shift_pressed_count == 0) {
+                shift_activate_from_user(false);
+            }
+            layer_off(lang_shift_current_shift_layer);
+            sticky_shift_is_held = false;
+            if (!key_pressed_during_sticky_shift) {
+                shift_once_use_to_next_key(lang_get_shift_layer_number());
+            }
+        }
+        return false;
     case LA_CHNG:
       if (down) {
         if (lang_should_be == 0) {
@@ -682,6 +706,11 @@ bool lang_shift_process_record(Key key, keyrecord_t* record) {
   shift_once_process(key, record);
 
   bool down = record->event.pressed;
+
+  // KB - Обрабатываем залипающий шифт
+  if (sticky_shift_is_held && down && key != SFT_STK) {
+    key_pressed_during_sticky_shift = true;
+  }
 
   // Разбираемся, имеет ли эта клавиша какой-то язык, заданный в ней
   Key key1 = lang_process(key, down);
