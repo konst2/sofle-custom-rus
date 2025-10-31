@@ -220,6 +220,66 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    )
 };
 
+// комбо скобки
+enum combo_events {
+    COMBO_AG_LPRN,  // (
+    COMBO_AG_RPRN,  // )
+    COMBO_EN_LCBR,  // {
+    COMBO_EN_RCBR,  // }
+    COMBO_EN_LBRC,  // [
+    COMBO_EN_RBRC,  // ]
+    COMBO_EN_LT,    // <
+    COMBO_EN_GT,    // >
+    COMBO_AG_LPRN_R,  // (
+    COMBO_AG_RPRN_R,  // )
+    COMBO_EN_LCBR_R,  // {
+    COMBO_EN_RCBR_R,  // }
+    COMBO_EN_LBRC_R,  // [
+    COMBO_EN_RBRC_R,  // ]
+    COMBO_EN_LT_R,    // <
+    COMBO_EN_GT_R,    // >
+    COMBO_COUNT
+};
+// комбо скобки
+const uint16_t PROGMEM rt_combo[] = {EN_R, EN_T, COMBO_END};
+const uint16_t PROGMEM fg_combo[] = {EN_F, EN_G, COMBO_END};
+const uint16_t PROGMEM vb_combo[] = {EN_V, EN_B, COMBO_END};
+const uint16_t PROGMEM cv_combo[] = {EN_C, EN_V, COMBO_END};
+const uint16_t PROGMEM yu_combo[] = {EN_Y, EN_U, COMBO_END};
+const uint16_t PROGMEM hj_combo[] = {EN_H, EN_J, COMBO_END};
+const uint16_t PROGMEM nm_combo[] = {EN_N, EN_M, COMBO_END};
+const uint16_t PROGMEM mcom_combo[] = {EN_M, EN_COMM, COMBO_END};
+
+const uint16_t PROGMEM rt_combo_r[] = {RU_K, RU_JE, COMBO_END};
+const uint16_t PROGMEM fg_combo_r[] = {RU_A, RU_P, COMBO_END};
+const uint16_t PROGMEM vb_combo_r[] = {RU_M, RU_I, COMBO_END};
+const uint16_t PROGMEM cv_combo_r[] = {RU_S, RU_M, COMBO_END};
+const uint16_t PROGMEM yu_combo_r[] = {RU_N, RU_G, COMBO_END};
+const uint16_t PROGMEM hj_combo_r[] = {RU_R, RU_O, COMBO_END};
+const uint16_t PROGMEM nm_combo_r[] = {RU_T, RU_SF, COMBO_END};
+const uint16_t PROGMEM mcom_combo_r[] = {RU_SF, RU_B, COMBO_END};
+
+combo_t key_combos[] = {
+    // комбо скобки
+    [COMBO_AG_LPRN] = COMBO(rt_combo, AG_LPRN),
+    [COMBO_EN_LCBR] = COMBO(fg_combo, EN_LCBR),
+    [COMBO_EN_LBRC] = COMBO(vb_combo, EN_LBRC),
+    [COMBO_EN_LT] = COMBO(cv_combo, EN_LT),
+    [COMBO_AG_RPRN] = COMBO(yu_combo, AG_RPRN),
+    [COMBO_EN_RCBR] = COMBO(hj_combo, EN_RCBR),
+    [COMBO_EN_RBRC] = COMBO(nm_combo, EN_RBRC),
+    [COMBO_EN_GT] = COMBO(mcom_combo, EN_GT),
+
+    [COMBO_AG_LPRN_R] = COMBO(rt_combo_r, AG_LPRN),
+    [COMBO_EN_LCBR_R] = COMBO(fg_combo_r, EN_LCBR),
+    [COMBO_EN_LBRC_R] = COMBO(vb_combo_r, EN_LBRC),
+    [COMBO_EN_LT_R] = COMBO(cv_combo_r, EN_LT),
+    [COMBO_AG_RPRN_R] = COMBO(yu_combo_r, AG_RPRN),
+    [COMBO_EN_RCBR_R] = COMBO(hj_combo_r, EN_RCBR),
+    [COMBO_EN_RBRC_R] = COMBO(nm_combo_r, EN_RBRC),
+    [COMBO_EN_GT_R] = COMBO(mcom_combo_r, EN_GT),
+};
+
 
 // RGB эффекты
 #ifdef RGB_MATRIX_ENABLE
