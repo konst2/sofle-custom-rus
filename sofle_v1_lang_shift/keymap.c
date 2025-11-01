@@ -156,9 +156,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * | ESC  |   !  |   @  |   #  |   $  |   %  |                    |   ˆ  |   &  |   *  |   (  |   )  | Bspc |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  |   ?  |      |   №  |   '  |   (  |                    |   )  |   '  |   +  |   -  |   |  |   "  |
+ * | Tab  |   ?  |      |   №  |   '  |   (  |                    |   )  |   .  |   +  |   -  |   |  |   "  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |   ~  |      |   :  |   "  |   {  |-------.    ,-------|   }  |   "  |   =  |   _  |   \  |   '  |
+ * |   `  |   ~  |      |   :  |   "  |   {  |-------.    ,-------|   }  |   ,  |   =  |   _  |   \  |   '  |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|      |      |   ;  |   <  |   [  |-------|    |-------|   ]  |   >  |   ,  |   .  |   /  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -168,8 +168,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 COMBOS = LAYOUT(
   _______, AG_EXCL,   EN_AT, EN_HASH,  EN_DLR, AG_PERC,                    EN_CIRC, EN_AMPR, AG_ASTR, AG_LPRN, AG_RPRN, KC_BSPC,
-  _______, AG_QUES, XXXXXXX, RU_NUME, EN_QUOT, AG_LPRN,                    AG_RPRN, EN_QUOT, AG_PLUS, AG_MINS, EN_PIPE, AG_DQUO,
-   EN_GRV, EN_TILD, XXXXXXX, AG_COLN, AG_DQUO, EN_LCBR,                    EN_RCBR, AG_DQUO,  AG_EQL, AG_UNDS, AG_BSLS, EN_QUOT,
+  _______, AG_QUES, XXXXXXX, RU_NUME, EN_QUOT, AG_LPRN,                    AG_RPRN,  AG_DOT, AG_PLUS, AG_MINS, EN_PIPE, AG_DQUO,
+   EN_GRV, EN_TILD, XXXXXXX, AG_COLN, AG_DQUO, EN_LCBR,                    EN_RCBR, AG_COMM,  AG_EQL, AG_UNDS, AG_BSLS, EN_QUOT,
   _______, XXXXXXX, XXXXXXX, AG_SCLN,   EN_LT, EN_LBRC, _______,   XXXXXXX,EN_RBRC,   EN_GT, AG_COMM,  AG_DOT, EN_SLSH, _______,
 
                        _______, _______, _______, _______, KC_BSPC,       _______, _______, _______, _______, _______
