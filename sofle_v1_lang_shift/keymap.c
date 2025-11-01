@@ -516,7 +516,26 @@ static const char *const rgb_effect_names[] = {
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (!lang_shift_process_record(keycode, record))
+    // меняем CMD и CTRL местами под Win и Linux
+    uint16_t langshft_keycode = keycode;
+    switch (keycode) {
+        case WIN_0_OS:
+            if (!IS_MACOS) {
+                langshft_keycode = CTRL_0;
+            } else {
+                langshft_keycode = WIN_0;
+            }
+            break;
+        case CTRL_0_OS:
+            if (IS_MACOS) {
+                langshft_keycode = CTRL_0;
+            } else {
+                langshft_keycode = WIN_0;
+            }
+            break;
+        }
+
+    if (!lang_shift_process_record(langshft_keycode, record))
         return false;
 
     switch (keycode) {
@@ -619,37 +638,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_CH_OS:
             if (record->event.pressed) {
                 switch_to_next_os();
-            }
-            break;
-        // меняем CMD и CTRL местами под Win и Linux
-        case WIN_0_OS:
-            if (record->event.pressed) {
-                if (!IS_MACOS) {
-                    register_code(CTRL_0);
-                } else {
-                    register_code(WIN_0);
-                }
-            } else {
-                if (!IS_MACOS) {
-                    unregister_code(CTRL_0);
-                } else {
-                    unregister_code(WIN_0);
-                }
-            }
-            break;
-        case CTRL_0_OS:
-            if (record->event.pressed) {
-                if (IS_MACOS) {
-                    register_code(CTRL_0);
-                } else {
-                    register_code(WIN_0);
-                }
-            } else {
-                if (IS_MACOS) {
-                    unregister_code(CTRL_0);
-                } else {
-                    unregister_code(WIN_0);
-                }
             }
             break;
     }
