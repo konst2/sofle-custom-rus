@@ -11,6 +11,8 @@ enum custom_keycodes {
     KC_DWDL,               // Delete Word Left (backward)
     KC_DWDR,               // Delete Word Right (forward)
     KC_CH_OS,              // Change OS
+    WIN_0_OS,              // клавиша CMD под Mac и CTRL под Windows/Linux
+    CTRL_0_OS,             // клавиша CMD под Windows/Linux и CTRL под Mac
     NEW_SAFE_RANGE,
 };
 
@@ -67,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|   z  |   x  |   c  |   v  |   b  |-------|    |-------|   n  |   m  |   ,  |   .  |   /  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LCTR | LAlt | LGUI |LOWER | /Space  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
+ *            |  CTR |  Alt |  GUI |LOWER | /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -78,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   EN_GRV,   EN_A,   EN_S,    EN_D,    EN_F,    EN_G,                     EN_H,    EN_J,    EN_K,    EN_L, EN_SCLN,  EN_QUOT,
   SFT_STK,  EN_Z,   EN_X,    EN_C,    EN_V,    EN_B, KC_MUTE,    XXXXXXX,EN_N,    EN_M, EN_COMM,  EN_DOT, AG_SLSH,  SFT_STK,
 
-                       CTRL_0, ALT_0, WIN_0, TL_LOWR, KC_SPC,    LA_CHNG, TL_UPPR, KC_ENT, WIN_0, CTRL_0
+                 CTRL_0_OS, ALT_0, WIN_0_OS, TL_LOWR, KC_SPC,    LA_CHNG, TL_UPPR, KC_ENT, WIN_0_OS, CTRL_0_OS
 ),
 /*
  * EN_SHIFT
@@ -91,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   <  |   >  |   ?  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LCTR | LAlt | LGUI |LOWER | /Space  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
+ *            |  CTR |  Alt |  GUI |LOWER | /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ | RAISE|      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -115,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|   я  |   ч  |   с  |   м  |   и  |-------|    |-------|   т  |   ь  |   б  |   ю  |   /  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LCTR | LAlt | LGUI |LOWER | /Space  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
+ *            |  CTR |  Alt |  GUI |LOWER | /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ | RAISE|      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -139,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|   Я  |   Ч  |   С  |   М  |   И  |-------|    |-------|   Т  |   Ь  |   Б  |   Ю  |   ?  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LCTR | LAlt | LGUI |LOWER | /Space  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
+ *            |  CTR |  Alt |  GUI |LOWER | /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ | RAISE|      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -162,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|      |      |   ;  |   <  |   [  |-------|    |-------|   ]  |   >  |   ,  |   .  |   /  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LCTR | LAlt | LGUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
+ *            |  CTR |  Alt |  GUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -184,7 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|  Ins |      |  Del |      |<-Line|-------|    |-------|Line->|  Ins |      |  Del |      | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LCTR | LAlt | LGUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
+ *            |  CTR |  Alt |  GUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -206,7 +208,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|      |      |      |      |      |-------|    |-------|      |  ъ   |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LCTR | LAlt | LGUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter | LGUI | RCTR |
+ *            |  CTR |  Alt |  GUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -617,6 +619,37 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case KC_CH_OS:
             if (record->event.pressed) {
                 switch_to_next_os();
+            }
+            break;
+        // меняем CMD и CTRL местами под Win и Linux
+        case WIN_0_OS:
+            if (record->event.pressed) {
+                if (!IS_MACOS) {
+                    register_code(CTRL_0);
+                } else {
+                    register_code(WIN_0);
+                }
+            } else {
+                if (!IS_MACOS) {
+                    unregister_code(CTRL_0);
+                } else {
+                    unregister_code(WIN_0);
+                }
+            }
+            break;
+        case CTRL_0_OS:
+            if (record->event.pressed) {
+                if (IS_MACOS) {
+                    register_code(CTRL_0);
+                } else {
+                    register_code(WIN_0);
+                }
+            } else {
+                if (IS_MACOS) {
+                    unregister_code(CTRL_0);
+                } else {
+                    unregister_code(WIN_0);
+                }
             }
             break;
     }
