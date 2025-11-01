@@ -166,7 +166,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
-COMBOS = LAYOUT(
+[_LOWER] = LAYOUT(
   _______, AG_EXCL,   EN_AT, EN_HASH,  EN_DLR, AG_PERC,                    EN_CIRC, EN_AMPR, AG_ASTR, AG_LPRN, AG_RPRN, KC_BSPC,
   _______, AG_QUES, XXXXXXX, RU_NUME, EN_QUOT, AG_LPRN,                    AG_RPRN,  AG_DOT, AG_PLUS, AG_MINS, EN_PIPE, AG_DQUO,
    EN_GRV, EN_TILD, XXXXXXX, AG_COLN, AG_DQUO, EN_LCBR,                    EN_RCBR, AG_COMM,  AG_EQL, AG_UNDS, AG_BSLS, EN_QUOT,
@@ -222,106 +222,255 @@ COMBOS = LAYOUT(
 
 /* COMBOS HORISONTAL
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |.     |      |      |      |      |                    |      |      |      |      |.     |.     |
+ * |     [!]    [@]    [#]    [$]    [%]     |                    |     [ˆ]    [&]    [*]    [(]    [)]     |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
+ * |     [?]    [ ]    [№]    [']    [(]     |                    |     [)]    [.]    [+]    [-]    [|]     |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |      |.     |      |      |      |-------.    ,-------|      |      |      |      |      |      |
+ * |     [˜]    [ ]    [:]    ["]    [{]     |-------.    ,-------|     [}]    [,]    [=]    [_]    [\]     |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|      |      |      |      |      |      |
+ * |     [ ]    [ ]    [;]    [<]    [[]     |-------|    |-------|     []]    [>]    [,]    [.]    [/]     |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            |      |      |      |.     | /       /       \.     \  |      |.     |      |      |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
-// const uint16_t PROGMEM combos_horizontal[MATRIX_ROWS][MATRIX_COLS] = [
-//   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX , XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-//   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX , XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-//   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX , XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-//   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX , XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-// ];
+const uint16_t PROGMEM combos_horizontal[] = {
+  AG_EXCL,    EN_AT,  EN_HASH,   EN_DLR, AG_PERC,                      EN_CIRC, EN_AMPR, AG_ASTR, AG_LPRN, AG_RPRN,
+  AG_QUES,  XXXXXXX,  RU_NUME,  EN_QUOT, AG_LPRN,                      AG_RPRN,  AG_DOT, AG_PLUS, AG_MINS, EN_PIPE,
+  EN_TILD,  XXXXXXX,  AG_COLN,  AG_DQUO, EN_LCBR,                      EN_RCBR, AG_COMM,  AG_EQL, AG_UNDS, AG_BSLS,
+  XXXXXXX,  XXXXXXX,  AG_SCLN,    EN_LT, EN_LBRC,                      EN_RBRC,   EN_GT, AG_COMM,  AG_DOT, EN_SLSH,
+};
 
 
 /* COMBOS VERTICAL
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |      |.     |      |      |      |      |                    |      |      |      |      |.     |.     |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
+ * |      |      |      |      |      |      |                    |      |      |      |      |.     |.     |
+ * |------+-[F1]-+-[F2]-+-[F3]-+-[F4]-+-[F5]-|                    |-[F6]-+-[F7]-+-[F8]-+-[F9]-+-[F10]+-[F11]|
  * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
- * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |      |.     |      |      |      |-------.    ,-------|      |      |      |      |      |      |
- * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
+ * |------+-[  ]-+-[  ]-+-[  ]-+-[  ]-+-[  ]-|                    |-[  ]-+-[  ]-+-[  ]-+-[  ]-+-[  ]-+-[F12]|
+ * |      |      |      |      |      |      |-------.    ,-------|      |      |      |      |      |      |
+ * |------+-[  ]-+-[  ]-+-[  ]-+-[  ]-+-[  ]-|       |    |       |-[  ]-+-[  ]-+-[  ]-+-[  ]-+-[  ]-+-[  ]-|
  * |      |      |      |      |      |      |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            |      |      |      |.     | /       /       \.     \  |      |.     |      |      |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
-// const uint16_t PROGMEM combos_vertical[MATRIX_ROWS][MATRIX_COLS] = [
-//   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-//   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-//   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+// const uint16_t PROGMEM combos_vertical[] = [
+//   XXXXXXX,    KC_F1,    KC_F2,    KC_F3,   KC_F4,   KC_F5,                       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
+//   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_F12,
+//   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 // ];
 
 
 
-// комбо скобки
+// комбо
 enum combo_events {
-    COMBO_AG_LPRN,  // (
-    COMBO_AG_RPRN,  // )
-    COMBO_EN_LCBR,  // {
-    COMBO_EN_RCBR,  // }
-    COMBO_EN_LBRC,  // [
-    COMBO_EN_RBRC,  // ]
-    COMBO_EN_LT,    // <
-    COMBO_EN_GT,    // >
-    COMBO_AG_LPRN_R,  // (
-    COMBO_AG_RPRN_R,  // )
-    COMBO_EN_LCBR_R,  // {
-    COMBO_EN_RCBR_R,  // }
-    COMBO_EN_LBRC_R,  // [
-    COMBO_EN_RBRC_R,  // ]
-    COMBO_EN_LT_R,    // <
-    COMBO_EN_GT_R,    // >
-    COMBO_COUNT
-};
-// комбо скобки
-const uint16_t PROGMEM rt_combo[] = {EN_R, EN_T, COMBO_END};
-const uint16_t PROGMEM fg_combo[] = {EN_F, EN_G, COMBO_END};
-const uint16_t PROGMEM vb_combo[] = {EN_V, EN_B, COMBO_END};
-const uint16_t PROGMEM cv_combo[] = {EN_C, EN_V, COMBO_END};
-const uint16_t PROGMEM yu_combo[] = {EN_Y, EN_U, COMBO_END};
-const uint16_t PROGMEM hj_combo[] = {EN_H, EN_J, COMBO_END};
-const uint16_t PROGMEM nm_combo[] = {EN_N, EN_M, COMBO_END};
-const uint16_t PROGMEM mcom_combo[] = {EN_M, EN_COMM, COMBO_END};
+  // Слой En
+  CMB_HE_00, CMB_HE_01, CMB_HE_02, CMB_HE_03, CMB_HE_04,
+    CMB_HE_05, CMB_HE_06, CMB_HE_07, CMB_HE_08, CMB_HE_09,
+  CMB_HE_10, CMB_HE_11, CMB_HE_12, CMB_HE_13, CMB_HE_14,
+    CMB_HE_15, CMB_HE_16, CMB_HE_17, CMB_HE_18, CMB_HE_19,
+  CMB_HE_20, CMB_HE_21, CMB_HE_22, CMB_HE_23, CMB_HE_24,
+    CMB_HE_25, CMB_HE_26, CMB_HE_27, CMB_HE_28, CMB_HE_29,
+  CMB_HE_30, CMB_HE_31, CMB_HE_32, CMB_HE_33, CMB_HE_34,
+    CMB_HE_35, CMB_HE_36, CMB_HE_37, CMB_HE_38, CMB_HE_39,
+  
+  // Слой Ru - первый ряд русских закомментирован, чтобы не было конфликта с комбо английского слоя
+//   CMB_HR_00, CMB_HR_01, CMB_HR_02, CMB_HR_03, CMB_HR_04,
+//     CMB_HR_05, CMB_HR_06, CMB_HR_07, CMB_HR_08, CMB_HR_09,
+  CMB_HR_10, CMB_HR_11, CMB_HR_12, CMB_HR_13, CMB_HR_14,
+    CMB_HR_15, CMB_HR_16, CMB_HR_17, CMB_HR_18, CMB_HR_19,
+  CMB_HR_20, CMB_HR_21, CMB_HR_22, CMB_HR_23, CMB_HR_24,
+    CMB_HR_25, CMB_HR_26, CMB_HR_27, CMB_HR_28, CMB_HR_29,
+  CMB_HR_30, CMB_HR_31, CMB_HR_32, CMB_HR_33, CMB_HR_34,
+    CMB_HR_35, CMB_HR_36, CMB_HR_37, CMB_HR_38, CMB_HR_39,
 
-const uint16_t PROGMEM rt_combo_r[] = {RU_K, RU_JE, COMBO_END};
-const uint16_t PROGMEM fg_combo_r[] = {RU_A, RU_P, COMBO_END};
-const uint16_t PROGMEM vb_combo_r[] = {RU_M, RU_I, COMBO_END};
-const uint16_t PROGMEM cv_combo_r[] = {RU_S, RU_M, COMBO_END};
-const uint16_t PROGMEM yu_combo_r[] = {RU_N, RU_G, COMBO_END};
-const uint16_t PROGMEM hj_combo_r[] = {RU_R, RU_O, COMBO_END};
-const uint16_t PROGMEM nm_combo_r[] = {RU_T, RU_SF, COMBO_END};
-const uint16_t PROGMEM mcom_combo_r[] = {RU_SF, RU_B, COMBO_END};
+  COMBO_COUNT
+};
+// Слой En
+const uint16_t PROGMEM cmb_he_00[] = {KC_ESC, AG_1, COMBO_END};
+const uint16_t PROGMEM cmb_he_01[] = {AG_1, AG_2, COMBO_END};
+const uint16_t PROGMEM cmb_he_02[] = {AG_2, AG_3, COMBO_END};
+const uint16_t PROGMEM cmb_he_03[] = {AG_3, AG_4, COMBO_END};
+const uint16_t PROGMEM cmb_he_04[] = {AG_4, AG_5, COMBO_END};
+
+    const uint16_t PROGMEM cmb_he_05[] = {AG_6, AG_7, COMBO_END};
+    const uint16_t PROGMEM cmb_he_06[] = {AG_7, AG_8, COMBO_END};
+    const uint16_t PROGMEM cmb_he_07[] = {AG_8, AG_9, COMBO_END};
+    const uint16_t PROGMEM cmb_he_08[] = {AG_9, AG_0, COMBO_END};
+    const uint16_t PROGMEM cmb_he_09[] = {AG_0, KC_BSPC, COMBO_END};
+
+const uint16_t PROGMEM cmb_he_10[] = {KC_TAB, EN_Q, COMBO_END};
+const uint16_t PROGMEM cmb_he_11[] = {EN_Q, EN_W, COMBO_END};
+const uint16_t PROGMEM cmb_he_12[] = {EN_W, EN_E, COMBO_END};
+const uint16_t PROGMEM cmb_he_13[] = {EN_E, EN_R, COMBO_END};
+const uint16_t PROGMEM cmb_he_14[] = {EN_R, EN_T, COMBO_END};
+
+    const uint16_t PROGMEM cmb_he_15[] = {EN_Y, EN_U, COMBO_END};
+    const uint16_t PROGMEM cmb_he_16[] = {EN_U, EN_I, COMBO_END};
+    const uint16_t PROGMEM cmb_he_17[] = {EN_I, EN_O, COMBO_END};
+    const uint16_t PROGMEM cmb_he_18[] = {EN_O, EN_P, COMBO_END};
+    const uint16_t PROGMEM cmb_he_19[] = {EN_P, EN_LBRC, COMBO_END};
+
+const uint16_t PROGMEM cmb_he_20[] = {EN_GRV, EN_A, COMBO_END};
+const uint16_t PROGMEM cmb_he_21[] = {EN_A, EN_S, COMBO_END};
+const uint16_t PROGMEM cmb_he_22[] = {EN_S, EN_D, COMBO_END};
+const uint16_t PROGMEM cmb_he_23[] = {EN_D, EN_F, COMBO_END};
+const uint16_t PROGMEM cmb_he_24[] = {EN_F, EN_G, COMBO_END};
+
+    const uint16_t PROGMEM cmb_he_25[] = {EN_H, EN_J, COMBO_END};
+    const uint16_t PROGMEM cmb_he_26[] = {EN_J, EN_K, COMBO_END};
+    const uint16_t PROGMEM cmb_he_27[] = {EN_K, EN_L, COMBO_END};
+    const uint16_t PROGMEM cmb_he_28[] = {EN_L, EN_SCLN, COMBO_END};
+    const uint16_t PROGMEM cmb_he_29[] = {EN_SCLN, EN_QUOT, COMBO_END};
+
+const uint16_t PROGMEM cmb_he_30[] = {SFT_STK, EN_Z, COMBO_END};
+const uint16_t PROGMEM cmb_he_31[] = {EN_Z, EN_X, COMBO_END};
+const uint16_t PROGMEM cmb_he_32[] = {EN_X, EN_C, COMBO_END};
+const uint16_t PROGMEM cmb_he_33[] = {EN_C, EN_V, COMBO_END};
+const uint16_t PROGMEM cmb_he_34[] = {EN_V, EN_B, COMBO_END};
+
+    const uint16_t PROGMEM cmb_he_35[] = {EN_N, EN_M, COMBO_END};
+    const uint16_t PROGMEM cmb_he_36[] = {EN_M, EN_COMM, COMBO_END};
+    const uint16_t PROGMEM cmb_he_37[] = {EN_COMM, EN_DOT, COMBO_END};
+    const uint16_t PROGMEM cmb_he_38[] = {EN_DOT, AG_SLSH, COMBO_END};
+    const uint16_t PROGMEM cmb_he_39[] = {AG_SLSH, SFT_STK, COMBO_END};
+
+// Слой Ru
+// const uint16_t PROGMEM cmb_hr_00[] = {KC_ESC, AG_1, COMBO_END};
+// const uint16_t PROGMEM cmb_hr_01[] = {AG_1, AG_2, COMBO_END};
+// const uint16_t PROGMEM cmb_hr_02[] = {AG_2, AG_3, COMBO_END};
+// const uint16_t PROGMEM cmb_hr_03[] = {AG_3, AG_4, COMBO_END};
+// const uint16_t PROGMEM cmb_hr_04[] = {AG_4, AG_5, COMBO_END};
+
+//     const uint16_t PROGMEM cmb_hr_05[] = {AG_6, AG_7, COMBO_END};
+//     const uint16_t PROGMEM cmb_hr_06[] = {AG_7, AG_8, COMBO_END};
+//     const uint16_t PROGMEM cmb_hr_07[] = {AG_8, AG_9, COMBO_END};
+//     const uint16_t PROGMEM cmb_hr_08[] = {AG_9, AG_0, COMBO_END};
+//     const uint16_t PROGMEM cmb_hr_09[] = {AG_0, KC_BSPC, COMBO_END};
+
+const uint16_t PROGMEM cmb_hr_10[] = {KC_TAB, RU_J, COMBO_END};
+const uint16_t PROGMEM cmb_hr_11[] = {RU_J, RU_TS, COMBO_END};
+const uint16_t PROGMEM cmb_hr_12[] = {RU_TS, RU_U, COMBO_END};
+const uint16_t PROGMEM cmb_hr_13[] = {RU_U, RU_K, COMBO_END};
+const uint16_t PROGMEM cmb_hr_14[] = {RU_K, RU_JE, COMBO_END};
+
+    const uint16_t PROGMEM cmb_hr_15[] = {RU_N, RU_G, COMBO_END};
+    const uint16_t PROGMEM cmb_hr_16[] = {RU_G, RU_SH, COMBO_END};
+    const uint16_t PROGMEM cmb_hr_17[] = {RU_SH, RU_SC, COMBO_END};
+    const uint16_t PROGMEM cmb_hr_18[] = {RU_SC, RU_Z, COMBO_END};
+    const uint16_t PROGMEM cmb_hr_19[] = {RU_Z, RU_H, COMBO_END};
+
+const uint16_t PROGMEM cmb_hr_20[] = {RU_JO, RU_F, COMBO_END};
+const uint16_t PROGMEM cmb_hr_21[] = {RU_F, RU_Y, COMBO_END};
+const uint16_t PROGMEM cmb_hr_22[] = {RU_Y, RU_V, COMBO_END};
+const uint16_t PROGMEM cmb_hr_23[] = {RU_V, RU_A, COMBO_END};
+const uint16_t PROGMEM cmb_hr_24[] = {RU_A, RU_P, COMBO_END};
+
+    const uint16_t PROGMEM cmb_hr_25[] = {RU_R, RU_O, COMBO_END};
+    const uint16_t PROGMEM cmb_hr_26[] = {RU_O, RU_L, COMBO_END};
+    const uint16_t PROGMEM cmb_hr_27[] = {RU_L, RU_D, COMBO_END};
+    const uint16_t PROGMEM cmb_hr_28[] = {RU_D, RU_ZH, COMBO_END};
+    const uint16_t PROGMEM cmb_hr_29[] = {RU_ZH, RU_E, COMBO_END};
+
+const uint16_t PROGMEM cmb_hr_30[] = {SFT_STK, RU_JA, COMBO_END};
+const uint16_t PROGMEM cmb_hr_31[] = {RU_JA, RU_CH, COMBO_END};
+const uint16_t PROGMEM cmb_hr_32[] = {RU_CH, RU_S, COMBO_END};
+const uint16_t PROGMEM cmb_hr_33[] = {RU_S, RU_M, COMBO_END};
+const uint16_t PROGMEM cmb_hr_34[] = {RU_M, RU_I, COMBO_END};
+
+    const uint16_t PROGMEM cmb_hr_35[] = {RU_T, RU_SF, COMBO_END};
+    const uint16_t PROGMEM cmb_hr_36[] = {RU_SF, RU_B, COMBO_END};
+    const uint16_t PROGMEM cmb_hr_37[] = {RU_B, RU_JU, COMBO_END};
+    const uint16_t PROGMEM cmb_hr_38[] = {RU_JU, AG_SLSH, COMBO_END};
+    const uint16_t PROGMEM cmb_hr_39[] = {AG_SLSH, SFT_STK, COMBO_END};
+
 
 combo_t key_combos[] = {
-    // комбо скобки
-    [COMBO_AG_LPRN] = COMBO(rt_combo, AG_LPRN),
-    [COMBO_EN_LCBR] = COMBO(fg_combo, EN_LCBR),
-    [COMBO_EN_LBRC] = COMBO(vb_combo, EN_LBRC),
-    [COMBO_EN_LT] = COMBO(cv_combo, EN_LT),
-    [COMBO_AG_RPRN] = COMBO(yu_combo, AG_RPRN),
-    [COMBO_EN_RCBR] = COMBO(hj_combo, EN_RCBR),
-    [COMBO_EN_RBRC] = COMBO(nm_combo, EN_RBRC),
-    [COMBO_EN_GT] = COMBO(mcom_combo, EN_GT),
+    // Слой En - горизонтальные комбо
+    [CMB_HE_00] = COMBO(cmb_he_00, combos_horizontal[0]),
+    [CMB_HE_01] = COMBO(cmb_he_01, combos_horizontal[1]),
+    [CMB_HE_02] = COMBO(cmb_he_02, combos_horizontal[2]),
+    [CMB_HE_03] = COMBO(cmb_he_03, combos_horizontal[3]),
+    [CMB_HE_04] = COMBO(cmb_he_04, combos_horizontal[4]),
+    [CMB_HE_05] = COMBO(cmb_he_05, combos_horizontal[5]),
+    [CMB_HE_06] = COMBO(cmb_he_06, combos_horizontal[6]),
+    [CMB_HE_07] = COMBO(cmb_he_07, combos_horizontal[7]),
+    [CMB_HE_08] = COMBO(cmb_he_08, combos_horizontal[8]),
+    [CMB_HE_09] = COMBO(cmb_he_09, combos_horizontal[9]),
+    [CMB_HE_10] = COMBO(cmb_he_10, combos_horizontal[10]),
+    [CMB_HE_11] = COMBO(cmb_he_11, combos_horizontal[11]),
+    [CMB_HE_12] = COMBO(cmb_he_12, combos_horizontal[12]),
+    [CMB_HE_13] = COMBO(cmb_he_13, combos_horizontal[13]),
+    [CMB_HE_14] = COMBO(cmb_he_14, combos_horizontal[14]),
+    [CMB_HE_15] = COMBO(cmb_he_15, combos_horizontal[15]),
+    [CMB_HE_16] = COMBO(cmb_he_16, combos_horizontal[16]),
+    [CMB_HE_17] = COMBO(cmb_he_17, combos_horizontal[17]),
+    [CMB_HE_18] = COMBO(cmb_he_18, combos_horizontal[18]),
+    [CMB_HE_19] = COMBO(cmb_he_19, combos_horizontal[19]),
+    [CMB_HE_20] = COMBO(cmb_he_20, combos_horizontal[20]),
+    [CMB_HE_21] = COMBO(cmb_he_21, combos_horizontal[21]),
+    [CMB_HE_22] = COMBO(cmb_he_22, combos_horizontal[22]),
+    [CMB_HE_23] = COMBO(cmb_he_23, combos_horizontal[23]),
+    [CMB_HE_24] = COMBO(cmb_he_24, combos_horizontal[24]),
+    [CMB_HE_25] = COMBO(cmb_he_25, combos_horizontal[25]),
+    [CMB_HE_26] = COMBO(cmb_he_26, combos_horizontal[26]),
+    [CMB_HE_27] = COMBO(cmb_he_27, combos_horizontal[27]),
+    [CMB_HE_28] = COMBO(cmb_he_28, combos_horizontal[28]),
+    [CMB_HE_29] = COMBO(cmb_he_29, combos_horizontal[29]),
+    [CMB_HE_30] = COMBO(cmb_he_30, combos_horizontal[30]),
+    [CMB_HE_31] = COMBO(cmb_he_31, combos_horizontal[31]),
+    [CMB_HE_32] = COMBO(cmb_he_32, combos_horizontal[32]),
+    [CMB_HE_33] = COMBO(cmb_he_33, combos_horizontal[33]),
+    [CMB_HE_34] = COMBO(cmb_he_34, combos_horizontal[34]),
+    [CMB_HE_35] = COMBO(cmb_he_35, combos_horizontal[35]),
+    [CMB_HE_36] = COMBO(cmb_he_36, combos_horizontal[36]),
+    [CMB_HE_37] = COMBO(cmb_he_37, combos_horizontal[37]),
+    [CMB_HE_38] = COMBO(cmb_he_38, combos_horizontal[38]),
+    [CMB_HE_39] = COMBO(cmb_he_39, combos_horizontal[39]),
 
-    [COMBO_AG_LPRN_R] = COMBO(rt_combo_r, AG_LPRN),
-    [COMBO_EN_LCBR_R] = COMBO(fg_combo_r, EN_LCBR),
-    [COMBO_EN_LBRC_R] = COMBO(vb_combo_r, EN_LBRC),
-    [COMBO_EN_LT_R] = COMBO(cv_combo_r, EN_LT),
-    [COMBO_AG_RPRN_R] = COMBO(yu_combo_r, AG_RPRN),
-    [COMBO_EN_RCBR_R] = COMBO(hj_combo_r, EN_RCBR),
-    [COMBO_EN_RBRC_R] = COMBO(nm_combo_r, EN_RBRC),
-    [COMBO_EN_GT_R] = COMBO(mcom_combo_r, EN_GT),
+    // Слой Ru - горизонтальные комбо
+    // [CMB_HR_00] = COMBO(cmb_hr_00, combos_horizontal[0]),
+    // [CMB_HR_01] = COMBO(cmb_hr_01, combos_horizontal[1]),
+    // [CMB_HR_02] = COMBO(cmb_hr_02, combos_horizontal[2]),
+    // [CMB_HR_03] = COMBO(cmb_hr_03, combos_horizontal[3]),
+    // [CMB_HR_04] = COMBO(cmb_hr_04, combos_horizontal[4]),
+    // [CMB_HR_05] = COMBO(cmb_hr_05, combos_horizontal[5]),
+    // [CMB_HR_06] = COMBO(cmb_hr_06, combos_horizontal[6]),
+    // [CMB_HR_07] = COMBO(cmb_hr_07, combos_horizontal[7]),
+    // [CMB_HR_08] = COMBO(cmb_hr_08, combos_horizontal[8]),
+    // [CMB_HR_09] = COMBO(cmb_hr_09, combos_horizontal[9]),
+    [CMB_HR_10] = COMBO(cmb_hr_10, combos_horizontal[10]),
+    [CMB_HR_11] = COMBO(cmb_hr_11, combos_horizontal[11]),
+    [CMB_HR_12] = COMBO(cmb_hr_12, combos_horizontal[12]),
+    [CMB_HR_13] = COMBO(cmb_hr_13, combos_horizontal[13]),
+    [CMB_HR_14] = COMBO(cmb_hr_14, combos_horizontal[14]),
+    [CMB_HR_15] = COMBO(cmb_hr_15, combos_horizontal[15]),
+    [CMB_HR_16] = COMBO(cmb_hr_16, combos_horizontal[16]),
+    [CMB_HR_17] = COMBO(cmb_hr_17, combos_horizontal[17]),
+    [CMB_HR_18] = COMBO(cmb_hr_18, combos_horizontal[18]),
+    [CMB_HR_19] = COMBO(cmb_hr_19, combos_horizontal[19]),
+    [CMB_HR_20] = COMBO(cmb_hr_20, combos_horizontal[20]),
+    [CMB_HR_21] = COMBO(cmb_hr_21, combos_horizontal[21]),
+    [CMB_HR_22] = COMBO(cmb_hr_22, combos_horizontal[22]),
+    [CMB_HR_23] = COMBO(cmb_hr_23, combos_horizontal[23]),
+    [CMB_HR_24] = COMBO(cmb_hr_24, combos_horizontal[24]),
+    [CMB_HR_25] = COMBO(cmb_hr_25, combos_horizontal[25]),
+    [CMB_HR_26] = COMBO(cmb_hr_26, combos_horizontal[26]),
+    [CMB_HR_27] = COMBO(cmb_hr_27, combos_horizontal[27]),
+    [CMB_HR_28] = COMBO(cmb_hr_28, combos_horizontal[28]),
+    [CMB_HR_29] = COMBO(cmb_hr_29, combos_horizontal[29]),
+    [CMB_HR_30] = COMBO(cmb_hr_30, combos_horizontal[30]),
+    [CMB_HR_31] = COMBO(cmb_hr_31, combos_horizontal[31]),
+    [CMB_HR_32] = COMBO(cmb_hr_32, combos_horizontal[32]),
+    [CMB_HR_33] = COMBO(cmb_hr_33, combos_horizontal[33]),
+    [CMB_HR_34] = COMBO(cmb_hr_34, combos_horizontal[34]),
+    [CMB_HR_35] = COMBO(cmb_hr_35, combos_horizontal[35]),
+    [CMB_HR_36] = COMBO(cmb_hr_36, combos_horizontal[36]),
+    [CMB_HR_37] = COMBO(cmb_hr_37, combos_horizontal[37]),
+    [CMB_HR_38] = COMBO(cmb_hr_38, combos_horizontal[38]),
+    [CMB_HR_39] = COMBO(cmb_hr_39, combos_horizontal[39]),
 };
 
 
