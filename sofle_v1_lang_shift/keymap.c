@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|   z  |   x  |   c  |   v  |   b  |-------|    |-------|   n  |   m  |   ,  |   .  |   /  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            |  CTR |  Alt |  GUI |LOWER | /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
+ *            | LOWER| CTR  |  Alt |. GUI | /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   EN_GRV,   EN_A,   EN_S,    EN_D,    EN_F,    EN_G,                     EN_H,    EN_J,    EN_K,    EN_L, EN_SCLN,  EN_QUOT,
   SFT_STK,  EN_Z,   EN_X,    EN_C,    EN_V,    EN_B, KC_MUTE,    XXXXXXX,EN_N,    EN_M, EN_COMM,  EN_DOT, AG_SLSH,  SFT_STK,
 
-                 CTRL_0_OS, ALT_0, WIN_0_OS, TL_LOWR, KC_SPC,    LA_CHNG, TL_UPPR, KC_ENT, WIN_0_OS, CTRL_0_OS
+                 TL_LOWR, CTRL_0_OS, ALT_0, WIN_0_OS, KC_SPC,    LA_CHNG, TL_UPPR, KC_ENT, WIN_0_OS, CTRL_0_OS
 ),
 /*
  * EN_SHIFT
@@ -93,8 +93,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   <  |   >  |   ?  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            |  CTR |  Alt |  GUI |LOWER | /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
- *            |      |      |      |      |/       /         \      \ | RAISE|      |      |      |
+ *           | LOWER| CTR  |  Alt |  GUI |  /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
+ *           |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
 
@@ -117,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|   я  |   ч  |   с  |   м  |   и  |-------|    |-------|   т  |   ь  |   б  |   ю  |   /  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            |  CTR |  Alt |  GUI |LOWER | /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
+ *            | LOWER| CTR  |  Alt |  GUI | /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ | RAISE|      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -141,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|   Я  |   Ч  |   С  |   М  |   И  |-------|    |-------|   Т  |   Ь  |   Б  |   Ю  |   ?  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            |  CTR |  Alt |  GUI |LOWER | /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
+ *            | LOWER| CTR  |  Alt |  GUI | /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ | RAISE|      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -164,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|      |      |   ;  |   <  |   [  |-------|    |-------|   ]  |   >  |   ,  |   .  |   /  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            |  CTR |  Alt |  GUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
+ *            | LOWER| CTR  |  Alt |  GUI | / Bspc  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -186,7 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|  Ins |      |  Del |      |<-Line|-------|    |-------|Line->|  Ins |      |  Del |      | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            |  CTR |  Alt |  GUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
+ *            | LOWER| CTR  |  Alt |  GUI | / Bspc  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
@@ -208,7 +208,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * | Shift|      |      |      |      |      |-------|    |-------|      |  ъ   |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            |  CTR |  Alt |  GUI |LOWER | / Bspc  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
+ *            | LOWER| CTR  |  Alt |  GUI | / Bspc  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
