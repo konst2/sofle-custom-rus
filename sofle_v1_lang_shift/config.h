@@ -23,6 +23,12 @@
     #define OLED_FONT_H "lib/glcdfont_custom.c"
 #endif
 
+// уменьшим промежуток между нажатиями клавиш чтобы они считались комбинациями
+// чтобы исключить ложные срабатывания при быстрой печати
+#ifdef COMBO_ENABLE
+#    define COMBO_TERM 30
+#endif
+
 // RGB Matrix settings
 #ifdef RGB_MATRIX_ENABLE
     #define RGB_MATRIX_LED_COUNT       72 // Number of LEDs
