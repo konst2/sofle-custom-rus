@@ -11,8 +11,8 @@ enum custom_keycodes {
     KC_DWDL,               // Delete Word Left (backward)
     KC_DWDR,               // Delete Word Right (forward)
     KC_CH_OS,              // Change OS
-    WIN_0_OS,              // клавиша CMD под Mac и CTRL под Windows/Linux
-    CTRL_0_OS,             // клавиша CMD под Windows/Linux и CTRL под Mac
+    WIN_EN_OS,              // клавиша CMD под Mac и CTRL под Windows/Linux
+    CTRL_EN_OS,             // клавиша CMD под Windows/Linux и CTRL под Mac
     NEW_SAFE_RANGE,
 };
 
@@ -80,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   EN_GRV,   EN_A,   EN_S,    EN_D,    EN_F,    EN_G,                      EN_H,    EN_J,    EN_K,    EN_L, EN_SCLN,  EN_QUOT,
   SFT_STK,  EN_Z,   EN_X,    EN_C,    EN_V,    EN_B, KC_MUTE,  TG(_RAISE),EN_N,    EN_M, EN_COMM,  EN_DOT, AG_SLSH,  SFT_STK,
 
-                 TL_LOWR, CTRL_0_OS, ALT_0, WIN_0_OS, KC_SPC,    LA_CHNG, TL_UPPR, KC_ENT, WIN_0_OS, CTRL_0_OS
+             TL_LOWR, CTRL_EN_OS, ALT_EN, WIN_EN_OS, KC_SPC,    LA_CHNG, TL_UPPR, KC_ENT, WIN_EN_OS, CTRL_EN_OS
 ),
 /*
  * EN_SHIFT
@@ -104,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  EN_TILD, EN_S_A, EN_S_S,  EN_S_D,  EN_S_F,  EN_S_G,                      EN_S_H,  EN_S_J,  EN_S_K,  EN_S_L, EN_COLN,  EN_DQUO,
  SFT_STK, EN_S_Z, EN_S_X,  EN_S_C,  EN_S_V,  EN_S_B, KC_MUTE,  TG(_RAISE),EN_S_N,  EN_S_M,   EN_LT,   EN_GT, AG_QUES,  SFT_STK,
 
-                    _______, _______, _______, _______, KC_SPC,     _______, _______, _______, _______, _______
+                 _______, _______, _______, _______, KC_SPC,     _______, _______, _______, _______, _______
 ),
 /*
  * RU
@@ -128,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    RU_JO,   RU_F,   RU_Y,    RU_V,    RU_A,    RU_P,                        RU_R,    RU_O,    RU_L,    RU_D,   RU_ZH,  RU_E,
  SFT_STK,  RU_JA,  RU_CH,    RU_S,    RU_M,    RU_I, KC_MUTE,    TG(_RAISE),RU_T,   RU_SF,    RU_B,   RU_JU, AG_SLSH,  SFT_STK,
 
-                    _______, _______, _______, _______, KC_SPC,     _______, _______, _______, _______, _______
+                 _______, _______, _______, _______, KC_SPC,     _______, _______, _______, _______, _______
 ),
 /*
  * RU_SHIFT
@@ -174,7 +174,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    EN_GRV, EN_TILD, XXXXXXX, AG_COLN, AG_DQUO, EN_LCBR,                    EN_RCBR, AG_COMM,  AG_EQL, AG_UNDS, AG_BSLS, EN_QUOT,
   _______, XXXXXXX, XXXXXXX, AG_SCLN,   EN_LT, EN_LBRC, _______,   XXXXXXX,EN_RBRC,   EN_GT, AG_COMM,  AG_DOT, EN_SLSH, _______,
 
-                       _______, _______, _______, _______, KC_BSPC,       _______, _______, _______, _______, _______
+                    _______, _______, _______, _______, KC_BSPC,       _______, _______, _______, _______, _______
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -248,18 +248,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // меняем CMD и CTRL местами под Win и Linux
     uint16_t langshft_keycode = keycode;
     switch (keycode) {
-        case WIN_0_OS:
+        case WIN_EN_OS:
             if (!IS_MACOS) {
-                langshft_keycode = CTRL_0;
+                langshft_keycode = CTRL_EN;
             } else {
-                langshft_keycode = WIN_0;
+                langshft_keycode = WIN_EN;
             }
             break;
-        case CTRL_0_OS:
+        case CTRL_EN_OS:
             if (IS_MACOS) {
-                langshft_keycode = CTRL_0;
+                langshft_keycode = CTRL_EN;
             } else {
-                langshft_keycode = WIN_0;
+                langshft_keycode = WIN_EN;
             }
             break;
         }
