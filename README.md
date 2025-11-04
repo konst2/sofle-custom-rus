@@ -1,3 +1,7 @@
+[![QMK](https://img.shields.io/badge/QMK-Firmware-blue.svg)](https://qmk.fm)
+[![Keyboard: Sofle](https://img.shields.io/badge/Keyboard-Sofle_RGB_v2-green.svg)](https://github.com/josefadamcik/SofleKeyboard)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+
 # Sofle Custom RU — прошивка для QMK с независимым от раскладки ОС расположением символов
 
 Прошивка предназначена для эргономичной split-клавиатуры Sofle RGB v2 (MX) 
