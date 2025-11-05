@@ -142,7 +142,7 @@ const uint16_t PROGMEM cmb_hr_34[] = {keymaps[_LAYER_RU][3][4], keymaps[_LAYER_R
     const uint16_t PROGMEM cmb_ve_02[] = {keymaps[_LAYER_EN][0][2], keymaps[_LAYER_EN][1][2], COMBO_END};
     const uint16_t PROGMEM cmb_ve_03[] = {keymaps[_LAYER_EN][0][3], keymaps[_LAYER_EN][1][3], COMBO_END};
     const uint16_t PROGMEM cmb_ve_04[] = {keymaps[_LAYER_EN][0][4], keymaps[_LAYER_EN][1][4], COMBO_END};
-    const uint16_t PROGMEM cmb_ve_05[] = {keymaps[_LAYER_EN][5][5], keymaps[_LAYER_EN][1][5], COMBO_END};
+    const uint16_t PROGMEM cmb_ve_05[] = {keymaps[_LAYER_EN][0][5], keymaps[_LAYER_EN][1][5], COMBO_END};
 
         const uint16_t PROGMEM cmb_ve_06[] = {keymaps[_LAYER_EN][5][5], keymaps[_LAYER_EN][6][5], COMBO_END};
         const uint16_t PROGMEM cmb_ve_07[] = {keymaps[_LAYER_EN][5][4], keymaps[_LAYER_EN][6][4], COMBO_END};
@@ -156,7 +156,7 @@ const uint16_t PROGMEM cmb_hr_34[] = {keymaps[_LAYER_RU][3][4], keymaps[_LAYER_R
     const uint16_t PROGMEM cmb_ve_s02[] = {keymaps[_LAYER_EN_SHIFT][0][2], keymaps[_LAYER_EN_SHIFT][1][2], COMBO_END};
     const uint16_t PROGMEM cmb_ve_s03[] = {keymaps[_LAYER_EN_SHIFT][0][3], keymaps[_LAYER_EN_SHIFT][1][3], COMBO_END};
     const uint16_t PROGMEM cmb_ve_s04[] = {keymaps[_LAYER_EN_SHIFT][0][4], keymaps[_LAYER_EN_SHIFT][1][4], COMBO_END};
-    const uint16_t PROGMEM cmb_ve_s05[] = {keymaps[_LAYER_EN_SHIFT][5][5], keymaps[_LAYER_EN_SHIFT][1][5], COMBO_END};
+    const uint16_t PROGMEM cmb_ve_s05[] = {keymaps[_LAYER_EN_SHIFT][0][5], keymaps[_LAYER_EN_SHIFT][1][5], COMBO_END};
 
         const uint16_t PROGMEM cmb_ve_s06[] = {keymaps[_LAYER_EN_SHIFT][5][5], keymaps[_LAYER_EN_SHIFT][6][5], COMBO_END};
         const uint16_t PROGMEM cmb_ve_s07[] = {keymaps[_LAYER_EN_SHIFT][5][4], keymaps[_LAYER_EN_SHIFT][6][4], COMBO_END};
@@ -171,7 +171,7 @@ const uint16_t PROGMEM cmb_hr_34[] = {keymaps[_LAYER_RU][3][4], keymaps[_LAYER_R
     const uint16_t PROGMEM cmb_vr_02[] = {keymaps[_LAYER_RU][0][2], keymaps[_LAYER_RU][1][2], COMBO_END};
     const uint16_t PROGMEM cmb_vr_03[] = {keymaps[_LAYER_RU][0][3], keymaps[_LAYER_RU][1][3], COMBO_END};
     const uint16_t PROGMEM cmb_vr_04[] = {keymaps[_LAYER_RU][0][4], keymaps[_LAYER_RU][1][4], COMBO_END};
-    const uint16_t PROGMEM cmb_vr_05[] = {keymaps[_LAYER_RU][5][5], keymaps[_LAYER_RU][1][5], COMBO_END};
+    const uint16_t PROGMEM cmb_vr_05[] = {keymaps[_LAYER_RU][0][5], keymaps[_LAYER_RU][1][5], COMBO_END};
 
         const uint16_t PROGMEM cmb_vr_06[] = {keymaps[_LAYER_RU][5][5], keymaps[_LAYER_RU][6][5], COMBO_END};
         const uint16_t PROGMEM cmb_vr_07[] = {keymaps[_LAYER_RU][5][4], keymaps[_LAYER_RU][6][4], COMBO_END};
@@ -185,7 +185,7 @@ const uint16_t PROGMEM cmb_hr_34[] = {keymaps[_LAYER_RU][3][4], keymaps[_LAYER_R
     const uint16_t PROGMEM cmb_vr_s02[] = {keymaps[_LAYER_RU_SHIFT][0][2], keymaps[_LAYER_RU_SHIFT][1][2], COMBO_END};
     const uint16_t PROGMEM cmb_vr_s03[] = {keymaps[_LAYER_RU_SHIFT][0][3], keymaps[_LAYER_RU_SHIFT][1][3], COMBO_END};
     const uint16_t PROGMEM cmb_vr_s04[] = {keymaps[_LAYER_RU_SHIFT][0][4], keymaps[_LAYER_RU_SHIFT][1][4], COMBO_END};
-    const uint16_t PROGMEM cmb_vr_s05[] = {keymaps[_LAYER_RU_SHIFT][5][5], keymaps[_LAYER_RU_SHIFT][1][5], COMBO_END};
+    const uint16_t PROGMEM cmb_vr_s05[] = {keymaps[_LAYER_RU_SHIFT][0][5], keymaps[_LAYER_RU_SHIFT][1][5], COMBO_END};
 
         const uint16_t PROGMEM cmb_vr_s06[] = {keymaps[_LAYER_RU_SHIFT][5][5], keymaps[_LAYER_RU_SHIFT][6][5], COMBO_END};
         const uint16_t PROGMEM cmb_vr_s07[] = {keymaps[_LAYER_RU_SHIFT][5][4], keymaps[_LAYER_RU_SHIFT][6][4], COMBO_END};
