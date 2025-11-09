@@ -12,6 +12,8 @@ static void render_logo(void) {
     oled_write_raw_P(raw_logo, sizeof(raw_logo));
 }
 
+
+static uint8_t status_count = 0; // посчитаем несколько первых обновлений, почему-то при попытке отобразить статус RGB после включения питания, иногда виснет клавиатура
 static void print_status_narrow(void) { 
     // раскладка
     switch (get_highest_layer(layer_state)) {
@@ -66,17 +68,23 @@ static void print_status_narrow(void) {
 
     // === RGB состояние ===
 #ifdef RGB_MATRIX_ENABLE
-    if (rgb_matrix_is_enabled()) {
-        oled_write_P(PSTR(" RGB\n"), false);
-        uint8_t mode = rgb_matrix_get_mode();
-        if (mode < sizeof(rgb_effect_names) / sizeof(rgb_effect_names[0]) && rgb_effect_names[mode]) {
-            oled_write(rgb_effect_names[mode], false);
+    if (status_count > 20) {// пропускаем несколько первых обновлений, почему-то при попытке отобразить статус RGB после включения питания, иногда виснет клавиатура
+        if (rgb_matrix_is_enabled()) {
+            oled_write_P(PSTR(" RGB\n"), false);
+            uint8_t mode = rgb_matrix_get_mode();
+            if (mode < sizeof(rgb_effect_names) / sizeof(rgb_effect_names[0]) && rgb_effect_names[mode]) {
+                oled_write(rgb_effect_names[mode], false);
+            } else {
+                oled_write_P(PSTR("?????"), false);
+            }
         } else {
-            oled_write_P(PSTR("?????"), false);
+            oled_write_P(PSTR("\n"), false);
+            oled_write_P(PSTR("_   _"), false);
         }
     } else {
+        status_count++;
         oled_write_P(PSTR("\n"), false);
-        oled_write_P(PSTR("_   _"), false);
+        oled_write_P(PSTR("_..._"), false);
     }
 #endif
 
