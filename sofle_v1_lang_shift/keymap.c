@@ -115,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |   ё  |   ф  |   ы  |   в  |   а  |   п  |-------.    ,-------|   р  |   о  |   л  |   д  |   ж  |   э  |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * | Shift|   я  |   ч  |   с  |   м  |   и  |-------|    |-------|   т  |   ь  |   б  |   ю  |   /  | Shift|
+ * | Shift|   я  |   ч  |   с  |   м  |   и  |-------|    |-------|   т  |   ь  |   б  |   ю  |   ъ  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LOWER| CTR  |  Alt |  GUI | /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ | RAISE|      |      |      |
@@ -126,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,   AG_1,   AG_2,    AG_3,    AG_4,    AG_5,                        AG_6,    AG_7,    AG_8,    AG_9,    AG_0,  KC_BSPC,
   KC_TAB,   RU_J,  RU_TS,    RU_U,    RU_K,   RU_JE,                        RU_N,    RU_G,   RU_SH,   RU_SC,    RU_Z,  RU_H,
    RU_JO,   RU_F,   RU_Y,    RU_V,    RU_A,    RU_P,                        RU_R,    RU_O,    RU_L,    RU_D,   RU_ZH,  RU_E,
- SFT_STK,  RU_JA,  RU_CH,    RU_S,    RU_M,    RU_I, KC_MUTE,    TG(_RAISE),RU_T,   RU_SF,    RU_B,   RU_JU, AG_SLSH,  SFT_STK,
+ SFT_STK,  RU_JA,  RU_CH,    RU_S,    RU_M,    RU_I, KC_MUTE,    TG(_RAISE),RU_T,   RU_SF,    RU_B,   RU_JU,   RU_HD,  SFT_STK,
 
                  _______, _______, _______, _______, KC_SPC,     _______, _______, _______, _______, _______
 ),
@@ -139,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |   Ë  |   Ф  |   Ы  |   В  |   А  |   П  |-------.    ,-------|   Р  |   О  |   Л  |   Д  |   Ж  |    Э |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * | Shift|   Я  |   Ч  |   С  |   М  |   И  |-------|    |-------|   Т  |   Ь  |   Б  |   Ю  |   ?  | Shift|
+ * | Shift|   Я  |   Ч  |   С  |   М  |   И  |-------|    |-------|   Т  |   Ь  |   Б  |   Ю  |   Ъ  | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LOWER| CTR  |  Alt |  GUI | /Space  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ | RAISE|      |      |      |
@@ -150,7 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC, AG_EXCL,   EN_AT, EN_HASH,  EN_DLR, AG_PERC,                     EN_CIRC, EN_AMPR, AG_ASTR, AG_LPRN, AG_RPRN, KC_BSPC,
   KC_TAB,  RU_S_J, RU_S_TS,  RU_S_U,  RU_S_K, RU_S_JE,                      RU_S_N,  RU_S_G, RU_S_SH, RU_S_SC,  RU_S_Z,  RU_S_H,
  RU_S_JO,  RU_S_F,  RU_S_Y,  RU_S_V,  RU_S_A,  RU_S_P,                      RU_S_R,  RU_S_O,  RU_S_L,  RU_S_D, RU_S_ZH,  RU_S_E,
- SFT_STK, RU_S_JA, RU_S_CH,  RU_S_S,  RU_S_M,  RU_S_I, KC_MUTE,  TG(_RAISE),RU_S_T, RU_S_SF,  RU_S_B, RU_S_JU, AG_QUES,  SFT_STK,
+ SFT_STK, RU_S_JA, RU_S_CH,  RU_S_S,  RU_S_M,  RU_S_I, KC_MUTE,  TG(_RAISE),RU_S_T, RU_S_SF,  RU_S_B, RU_S_JU, RU_S_HD,  SFT_STK,
 
                     _______, _______, _______, _______, KC_SPC,     _______, _______, _______, _______, _______
 ),
@@ -204,9 +204,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Tab  |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   `  |      |MACWIN|      |      |      |-------.    ,-------|      |  Ъ   |      |      |      |      |
+ * |   `  |      |MACWIN|      |      |      |-------.    ,-------|      |      |      |      |      |      |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * | Shift|      |      |      |      |      |-------|    |-------|      |  ъ   |      |      |      |      |
+ * | Shift|      |      |      |      |      |-------|    |-------|      |      |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LOWER| CTR  |  Alt |  GUI | / Bspc  /       \RU/EN \  | RAISE|Enter |  GUI |  CTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
@@ -215,8 +215,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ADJUST] = LAYOUT(
   _______,  RM_TOGG,  RM_NEXT,  RM_PREV , RM_HUEU, RM_HUED,                     RM_SATU, RM_SATD, RM_VALU, RM_VALD, RM_SPDU, RM_SPDD,
   _______,  XXXXXXX,  XXXXXXX,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-   EN_GRV,  XXXXXXX, KC_CH_OS,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, RU_S_HD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX,   RU_HD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+   EN_GRV,  XXXXXXX, KC_CH_OS,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 
                     _______, _______, _______, _______, KC_BSPC,     _______, _______, _______, _______, _______
    )
