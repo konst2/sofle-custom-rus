@@ -355,7 +355,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case KC_DWDR:
             if (record->event.pressed) {
-                // Delete word forward = Ctrl + Delete on Mac
+                // Delete word forward = Alt + Delete on Mac
                 register_code(KC_RIGHT_ALT);
                 register_code(KC_DEL);
             } else {
